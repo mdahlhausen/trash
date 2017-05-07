@@ -1,0 +1,1696 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Four Years of Trash</title>
+
+	<style>
+  /* http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/ */
+  body,html {
+    margin:0;
+    padding:10px;
+    color:#000;
+    font-family:"Arial";
+    line-height:1.3em;
+  }
+  #main {
+    float:left;
+    width:765px;
+    padding:25px;
+  }
+  #sidebar {
+    float:right;
+    width:250px;
+  }
+  h1 {
+    font-size:32px;
+  }
+  h2 {
+    font-size:20px;
+  }
+  h3 {
+    font-size:16px;
+  }
+  p,li,em {
+    font-size:14px;
+  }
+  p strong {
+    color:red;
+    display:none; /*comment out to show blog notes*/
+  }
+  .figure-caption {
+    font-size: 14px;
+    font-weight:bold;
+  }
+  .image-caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+  }
+  
+  /* VISUALIZATIONS STYLING */
+  
+	#tooltip {
+		position: absolute;
+		text-align: left;
+		font-family: "Arial";
+		font-size: 14px;
+    padding: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 4px;
+		background-color: lightgray;
+		pointer-events: none;
+	}
+	#tooltip.hidden {
+		display: none;
+	}
+  input {
+    width: 60px;
+    text-align: right;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 4px;
+  }
+  #trash-svg {
+    width: 750px;
+    height: 452px;
+  }
+  #compost-svg {
+    width: 750px;
+    height: 350px;
+  }
+
+  /* MSW TREEMAP STYLING */
+  
+  #msw-treemap {
+    width: 750px;
+    height: 500px;
+  }
+  .grandparent text {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  treemap-rect {
+    fill: none;
+    stroke: #fff;
+  }
+  rect.parent,
+  .grandparent rect {
+    stroke-width: 2px;
+  }
+  rect.parent {
+    pointer-events: none;
+  }
+  .grandparent rect {
+    fill: darkgray;
+  }
+  .grandparent:hover rect {
+    fill: gray;
+  }
+  .children rect.parent,
+  .grandparent rect {
+    cursor: pointer;
+  }
+  .children rect.parent {
+    fill: #bbb;
+    fill-opacity: .5;
+  }
+  .children:hover rect.child {
+    fill: #bbb;
+  }
+  
+	</style>
+</head>
+
+<body>
+<!-- <div id="sidebar"> -->
+<!-- Graphs will go in a sidebar here -->
+<!-- </div> -->
+
+<div id="main">
+<h1 id="trash4">Four Years of Trash</h1>
+
+  <p>
+    <em>Notes from an experiment of not landfilling anything for four years.</em>
+  </p>
+  <p>
+  <em>For readers looking at the wall of text below and wondering if you can get the gist without reading the whole thing, you can. Mostly. Scroll to the <a href="#tldr">Too Long; Didn’t Read</a> section at the bottom.</em>
+  </p>
+  <p>
+  <em>~30 minutes to read the entire piece.</em>
+  </p>
+
+<hr />
+
+<h2 id="introduction">Introduction</h2>
+  <h3><em>Weird Life Experiments</em></h3>
+  <p>People do weird life experiments from time to time and they can be interesting. It's a common human endeavor. One of my recent life experiments was to not throw away any of my trash for four years.</p>
+  <p>I didn't think about all the bags of trash my family generated growing up, except that I dreaded when it was my turn to haul it to the front curb for pickup. Our food scraps were comingled with the rest of our trash, and a week between pickups gave ample time for anaerobic decomposition to create a nostril-violating stench. Sometimes critters got in, creating such famous pieces of modern art as <em>"coffee grounds, on the ground"</em> and <em>"liquids - a thousand colors"</em>.</p>
+  <p>It wasn't until I was 17 that I thought about my material throughput. We were moving to a new house, and I had to sort through the possessions of my childhood and decide what I would keep and what I would part with. Something about the permanence of the plastic toys that would live on in a landfill long after I expired made me uneasy.</p> 
+  <p>Life is temporary.</p>
+  <p>Trash is forever.</p>
+  <em>However, this is not about guilt. It’s about trash-handling.</em>
+  <p>This is not another blog piece by some crazed eco-warrior about how they reduced their trash output to almost nothing.</p>
+  <p>I've read a few of those too. <a href="http://notrashproject.com/sample-page/">No Trash Project</a>, <a href="http://noimpactman.typepad.com/blog/2007/02/the_no_impact_e.html">No Impact Man</a>, <a href="http://zerogarbagechallenge.info/">Zero Garbage Challenge</a>, <a href="http://www.zerowastehome.com/">Zero Waste Home</a>, <a href="http://www.trashisfortossers.com/p/about.html">Trash is for Tossers</a>.  These sorts of stories can be divisive. Our waste habits are as private to us as the reasons for our food preferences, and it's always thorny talking about something so personal. The topic evokes a range of responses:</p>
+  <ul>
+    <li>
+      <em>"Here is another person who has fewer problems than me telling me how I'm wreaking havoc and should feel bad."</em>
+    </li>
+    <li>
+      <em>"A brave visionary savior who will lead us away from our eco-sinning. Likes and upvotes for all who share the story of this magical feat!"</em>
+    </li>
+    <li>
+      <em>"How pointless. [incoherent tangent on the sure doom of mankind]."</em>
+      </li>
+  </ul>
+  <p>But this article isn't about guilt. Or purity. Or how you should use a toothbrush scavenged from a dumpster.</p>
+  <p>You probably shouldn't.</p>
+  <p>If you are a self-identified tree hugger, suspend any guilt you may have about waste.  And if you think environmentalists are all whiny, puny pricks, put those thoughts aside too.</p>
+  <p>This story is about waste - how much we collectively produce, and some of the barriers we encounter in the <a href="https://en.wikipedia.org/wiki/Last_mile">last mile problem</a> to reduce it to zero.</p>
+
+<hr />
+
+<h1 id="toc">Contents</h1>
+  <ol id="toclist">
+    <li><a href="#part1">PART 1 - CONSUMPTION & TRASH HANDLING IN THE ENVIRONMENTAL MOVEMENT</a></li>
+    <li><a href="#part2">PART 2 - EXPERIMENTAL DESIGN, LIMITATIONS & RESULTS</a></li>
+    <li><a href="#part3">PART 3 - PUTTING THE RESULTS IN GLOBAL CONTEXT</a></li>
+    <li><a href="#part4">PART 4 - TOTAL WASTE HANDLING IN THE UNITED STATES</a></li>
+    <li><a href="#part5">PART 5 - FOCUS ON TWO SUBCATEGORIES: MUNICIPAL SOLID WASTE (MSW) and CONSTRUCTION & DEMOLITION DEBRIS (C&D)</a></li>
+    <li><a href="#part6">PART 6 - A CLOSER LOOK AT MUNICIPAL SOLID WASTE RECYCLING</a></li>
+    <li><a href="#part7">PART 7 - MAJOR INITIATIVES AND STRATEGIES TO REDUCE LANDFILL WASTE</a></li>
+    <li><a href="#part8">PART 8 - RELATIVE IMPORTANCE AND INDIVIDUAL ACTION</a></li>
+    <li><a href="#part9">PART 9 - CLOSING THOUGHTS/CONCLUSION</a></li>
+    <li><a href="#tldr">SUMMARY - TL;DR (Tool Long; Didn't Read)</a></li>
+    <li><a href="#appendix">APPENDIX - FURTHER READING</a></li>
+  </ol>
+
+<hr />
+
+<h2 id="part1">PART 1 - CONSUMPTION & TRASH HANDLING IN THE ENVIRONMENTAL MOVEMENT</h2>
+  <h3><em>Trash handling as part of the overall environmental picture</em></h3>
+  <p>The <a href="https://www.ipcc.ch/publications_and_data/publications_ipcc_fourth_assessment_report_synthesis_report.htm">4th IPCC report</a> on climate change came out as I entered college, and I felt compelled to learn more about the issue.</p>
+  <p>Thus began my exploration of the environmental movement.</p>
+  <p>Now, to be a "good environmentalist" you are supposed to drive less, bike more, not eat meat on Mondays, mourn the loss of habitat to parking lots, give able-bodied people angry glances for taking the elevator instead of the stairs, take shorter showers (if at all), recycle everything, and, of course, repent for all of your trash sin you send to a landfill.</p>
+  <p>Twice on Earth Day.</p>
+  <p>Perennial top ten tips to "be green" from schools and nongovernmental organizations always list the cliché: "Reduce, reuse, recycle."
+  <p>The "sustainable consumption" wave of environmentalism came about partly because the movement needed a new focus after the mostly victorious air pollution, water pollution, and pesticides campaigns of the 1960s and 1970s. An ancillary result of the early environmental protection movement was the formation of "environmentalist" as an identity group, with behavior badges to show membership, and the marketing industry’s response to that identity.</p>
+  <p>Living up to that identity as I began to adopt environmentalist views, I quickly developed a strong distaste for all the bits of single-use junk that insert themselves into our lives, wanted or not.</p>
+  <p>In fact, most people are annoyed with this stuff even if they don't consider themselves environmentalists. Things like candy wrappers, chip bags, clamshell containers, charity event t-shirts, logo-plastered office widgets designed by some marketer with a weird fetish for "I Spy" books.</p>
+  <p>We are primed to take free stuff when it’s offered to us and buy things we don't need. It's not until we’re cleaning out or moving a few years later when we discover the pile of accumulated junk and wonder, "*Why did I let this come into my life?*"</p>
+  <p>So, early in my college years, I adopted the view that if I accepted free plastic crap or purchased food in disposable packaging, that was my trash.</p>
+  <p>My responsibility. My cubic corner of the landfill.</p>
+  <p>And soon after that I decided to try not landfilling anything as an experiment.  I'd heard about other life experiments people have done, such as not talking for years, walking everywhere, not touching anything metal (that one seemed a bit extreme) - and figured this was doable.</p>
+
+<hr />
+
+<h2 id="part2">PART 2 - EXPERIMENTAL DESIGN, LIMITATIONS & RESULTS</h2>
+  <h3><em>Experimental design - measuring four years of trash</em></h3>
+  <p>When I started, I didn't have an end date in mind. I figured I would *carry* my trash for as long as I could. At the time, I could carry all of my immediate belongings in two backpacks, which made moving quite simple and easy.  So I had extra incentive to keep my trash output to a minimum.  If I produced at the rate of the average American, in a year the weight of my landfill trash would exceed 850 lbs (385 kg), more than all but a few of the strongest powerlifters can lift off the ground.  I would not be able to carry that in two backpacks.</p>
+  <h4><em>Important Disclaimers</em></h4>
+  <ul>
+    <li><strong>Household Size</strong>. This experiment is <em>much</em> easier to do as a childless person in your early 20s.  It would be inappropriate to extrapolate this trash generation rate over a lifetime.</li>
+    <li><strong>Recycling</strong>. I recycled what I could.  Paper products, steel cans, and plastic bags (at appropriate drop-off locations) constituted the bulk of what I recycled.  I did not adjust my results to include the weight of items I recycled that ended up getting landfilled anyway at the recycling facility; I'll talk about this more in <a href="#part6">Part 6</a>, on recycling and Material Recovery Facilities (MRFs).</li>
+    <li><strong>Biomedical Waste</strong>. I could not safely acquire and weigh biomedical waste attributed to me from one surgery or from donating blood, though I did include the bandages I went home with.</li>
+    <li><strong>Durable Goods</strong>.  It was hard to pick a time window for durable goods such as boots, clothes, backpacks, etc. Those goods can last years, the majority of use may have occurred before I started the experiment and continued after I finished. It would be easy to do one year of no-trash living and throw a lot of durables out before or after that year. However, four years allowed me time to exhaust a lot of durable goods to calculate my overall durable goods replacement rate. My waste includes shoes and clothes.</li>
+    <li><strong>Carbon Emissions and Sewage Sludge</strong>. I did not include non-solid waste such as carbon emissions and land-filled sewage sludge. Some sewer treatment plants treat and sell sludge, others landfill it.</li>
+    <li><strong>Home Maintenance</strong>.  I lived or ate at housing cooperatives during the four years of the experiment, and did not include waste from house maintenance/renovation work in my trash weight, with the exception of the DOW spray foam cans that made up ~15% of my trash.  If I had included renovation work on the houses I lived in, the biggest component would have been three 50-gallon trashcans of drywall, divided by ~10 people. That's a lot of drywall.</li>
+    <li><strong>Percentage of Shared Trash</strong>.  I did my best to divert my percentage of shared trash to my collection. I was not perfect at this.</li>
+    <li><strong>Dumpster Diving</strong>.  I went dumpster diving a lot in the middle two years to collect edible food. I allowed myself to toss packaging from what was recovered without weighing the packaging. In that time, I pulled a few hundred pounds of food out of dumpsters. Even dividing by 10 (because the gleanings were shared with co-op housemates), this activity made my overall landfill contribution substantially net negative.</li>
+  </ul>
+
+  <h4 id="results"><em>Results</em></h4>
+  <p>Between October 2011 and October 2015, I produced 26.6 lbs (12.1 kg) of trash.  As an average American, I would have landfilled 21% of my total waste at a rate of <a href="https://www.epa.gov/smm/advancing-sustainable-materials-management-facts-and-figures-report">2.32 lbs/person-day</a> for a difference of 2.32*365*4 - 26.6 = 3360.6 lbs = 1.68 tons of trash. The picture shows my trash in detail.
+  
+  <div class="image">
+    <svg id="trash-svg" ><image id="trash-image" width="100%" height="100%" xlink:href="./lib/images/trash.jpg"></svg>
+    <p class="image-caption">Trash.  Scroll over items to get descriptions.</p>
+  </div>
+  
+  <br>
+  
+  <div id="viz2">
+    <div class="figure-caption">
+    My Trash Output per Year <span class="cite"><a id="viz2-data">(data)</a></span>
+    </div>
+  </div>
+
+  <h4 id="impact"><em>Impact Analysis</em></h4>
+  <p><em>Reducing Waste - Personal Strategies and Significance</p></em>
+  <p>To estimate the impact from my waste stream, I need to consider the counter-factual - what would I have done instead?   And which impacts were most important to my landfill waste reduction?</p>
+  <p>First, I did not include construction and demolition debris in the total.  My experiement only impacted my municipal solid waste production.  Muncipal solid waste constitutes 32% of total landfilled waste. I reduced this to less than a hundreth of the typical American (26.6 lbs vs. 3360 lbs).  If we make the crude assumption that the <a href="http://www.wastedive.com/news/sweep-average-landfill-tip-fees-increased-in-2016/433932/">$50 average landfill tipping fee</a> covers the social cost of landfilling waste, my trash reduction experiment provided $85 worth of benefit to society.</p>
+  <p>Giving a set number suggests an accuracy that I don't think is possible for this sort of calculation, though I don't think it will be drastically off from this.  Perhaps within a factor of two.  Meaning the social benefit from my trash experiment was worth $10-$40/year.</p>
+  <p>There are some <a href="http://www.oecd.org/env/consumption-innovation/43179880.pdf">demographic differences</a> (age, gender, marital status, children) in waste production I could account for to give a better estimate, but I don't have specific, reliable data for U.S. differences, and the pure demographic markers don't seem to change the estimate more than +-10%.  I imagine that geographic differences are hyper-local, and that geographic differences overlap with lifestyle decisions (urban vs. rural living) which I can arguably claim credit for as reducing my waste.</p>
+  <div id="me_vs_average">
+    <div class="figure-caption">
+    My Trash vs. American Average over Four Years <span class="cite"><a id="me_vs_average-data">(data)</a></span>
+    </div>
+  </div>
+  <p>I've mentioned some disclaimers above that contributed to my waste reduction. By far the most significant thing I did was buy less stuff. Outside of groceries, I spent less than $900 per year on material goods and less than $75 on eating outside the home (I rarely went to restaurants).</p>
+  <p>Lifestyle and behavior factors that helped me reduce waste are:</p>
+  <ul>    
+    <li>I was in my mid-20s and did not have a house or family to support.</li>  
+    <li>I lived in cooperative living arrangements with 4-12 people.  We shared common space, furniture, chores, cooking, and meals. Most of our food came through a <a href="http://frankferd.com/">bulk food distributor</a> which had nearly all recyclable packing, and CSA programs for produce, including one CSA for <a href="http://www.hungryharvest.net/">recovered produce</a> that would have otherwise been composted or landfilled.</li>
+    <li>My co-ops composted either through a home compost bin or municipal composting. <em>This was probably the most significant factor in reducing waste.</em></li>
+    
+    <div class="image">
+      <svg id="compost-svg"><image id="compost-image" width="100%" height="100%" xlink:href="./lib/images/compost.jpg"></svg>
+      <p class="image-caption">Turning compost. Thanks to Nathan Sparks for building the bins.</p>
+    </div>
+
+    <li>We recovered a lot of </em>very nice, expensive</em> food from dumpster diving (check out <a href="https://www.reddit.com/r/dumpsterdiving">r/dumpsterdiving</a> on reddit for tips), and I did not include that waste towards the total since it was a net-negative activity.</li>    
+    <li>I actively refused straws, free food, plastic bags, etc. that were offered to me if it meant creating landfill-bound waste.</li>
+    <li>I went to specific drop off sites for plastic bags, awkward metal, and batteries for recycling.  This was tedious and annoying.</li>
+  </ul>
+  <p>Other things I did to cut down on my recyclable waste:</p>
+  <ul>
+    <li>I produced very little glass, because I don't drink alcohol and didn't buy beverages in glass containers.  Beverage containers constitute <a href="http://www.gpi.org/sites/default/files/Slide1_0.jpg">80% of glass containers</a> in municipal solid waste. As described below, glass recycling is tricky in single stream recycling programs because of its weight during pickup and breakage/tiny shards at the material recovery plant.</li>  
+    <li>Similarly, my food packaging was mostly cans or large brown paper bags. Boxboard and paperboard are about <a href="https://www.greenamerica.org/PDF/PaperFacts.pdf">half of paper products</a>, and I reduced this by not purchasing many processed foods (foods clustered in the center aisles of grocery stores).</li>
+    <li>I <a href="https://www.consumer.ftc.gov/articles/0262-stopping-unsolicited-mail-phone-calls-and-email">opt-ed out of recieving junk mail</a>.  Junk mail constitutes <a href="http://donotmail.org">6-10% of U.S. paper consumption</a>, 4-7 millions tons per year, and is perhaps one of the largest disutility generators in modern life. Its only useful function seems to be keeping afloat the U.S. Postal Service, as it accounts for <a href="http://www.nytimes.com/2012/09/20/business/seeking-revenue-postal-service-plans-to-deliver-more-junk-mail.html">half of U.S. mail</a>.  Ironically, one of the largest sources of my junk mail was environmental non-profits asking for donations.</li>
+  </ul>
+
+<hr />
+
+<h2 id="part3">PART 3 - PUTTING THE RESULTS IN GLOBAL CONTEXT</h2>
+  <p>My trash production came to less than 7 lbs/yr.</p>
+  <p>How does this compare to the rest of the world? Is it just as hard to cut individual waste production in low-income countries as it is in a wealthy country like the U.S.? Or is it easier in the U.S. because we have so much stuff at the baseline?</p>
+  <p>Alternatively, is total landfill space the best metric? Are the carbon emissions or energy used in dealing with waste a more significant environmental concern?</p>
+  <p>There is a wide variation in embodied energy and total life cycle emissions of different components in the waste stream.  Many materials are inert, harmless, and are more expensive to reuse or recycle. Should the public focus be less on total trash output and total recycling rates, and more on ensuring that all copper or aluminum is getting recycled?</p>
+  <p>These questions are very difficult to answer, for a variety of reasons.</p>
+  <p>There simply isn't much reliable data on how much waste ends up in landfills and what gets recycled, especially outside of the U.S. and other wealthy countries.</p>
+  <p>Waste is measured by weight, which varies considerably with moisture content and can easily throw numbers off.</p>
+  <p>Data also has to be aggregated over thousands of trash collection sites.</p>
+  <p>It's not easy to track what gets recycled and what doesn't, partly because you have to also know what was produced during that time, and partly because recycling commodity prices are highly volatile. What was marginally profitable to recycle a few months ago may now be cheaper to landfill.</p>
+  <p>Waste gets bought, sold, and shipped around the world. And in many parts of the world, trash isn't regulated and is disposed of in open pits.</p>
+  <p>To address these questions, I've tried to piece together disparate sources of information from academic journals, U.S. Environmental Protection Agency (EPA) reports on regulating waste, and data from third-party nongovernmental organizations that focus on waste.</p>
+  <p>I present the data with rough percentages and relative importance, but caution readers that there are <em>big</em> uncertainties in these numbers.</p>
+
+  <h3 id="theglobalcontext"><em>The Global Context</em></h3>
+  <p>Given the importance of waste-reduction as part of environmentalist identity, I expected to find much better data.</p>
+  <p>The lack of data may be related to the lack of strong consensus on <em>why</em> waste and landfills are important public issues.</p>
+  <p>Some reasons for public concern about waste production and handling include:</p>
+  <ol>
+    <li>Economic costs of dealing with lots of waste, including the cost of desirable landfill space and transporting waste;</li>
+    <li>Greenhouse gas emissions from waste emitted via transportation to landfills;</li>
+    <li>Greenhouse gas emissions from decomposition of waste at landfills;</li>
+    <li>Greenhouse gas emissions from the extraction and processing of virgin resources to make new goods to replace items that were not recycled or reused;</li>
+    <li>Political difficulties of <a href="http://www.slate.com/articles/health_and_science/the_green_lantern/2011/02/go_west_garbage_can.html">identifying spaces for landfills</a>.</li>
+  </ol>
+  <p>Global waste production will <em>triple</em> this century <a href="http://www.worldbank.org/en/news/feature/2013/10/30/global-waste-on-pace-to-triple">[1]</a>,<a href="http://www.nature.com/news/environment-waste-production-must-peak-this-century-1.14032">[2]</a> with rising population and economic output.  The associated financial and emissions costs for waste disposal will grow as well.</p>
+
+  <h4><em>Different trash production rates around the world</em></h4>
+  <p>Peter Menzel did a great <a href="http://menzelphoto.photoshelter.com/gallery-collection/Material-World-A-Global-Family-Portrait-by-Country/C0000d0DI3dBy4mQ">photo documentary</a> project in the late 1990s of families from around the world with all their stuff.  It’s enlightening to see photographic evidence of the disparity in material ownership around the world.</p>
+  <p>Although the <a href="http://www.ncbi.nlm.nih.gov/pubmed/22407700">per-capita solid waste production globally</a> data is limited, it supports the photographic anecdotes.</p>
+  
+  <div id="viz3">
+    <div class="figure-caption">
+    Annual per Capita Municipal Solid Waste Output by Country Income Level <span class="cite"><a href="http://www.ncbi.nlm.nih.gov/pubmed/22407700">(source)</a><a id="viz3-data">(data)</a></span>
+    </div>
+  </div>
+
+  <div id="viz4">
+    <div class="figure-caption">
+    Global Municipal Solid Waste Composition by Country Income Level <span class="cite"><a href="http://www.ncbi.nlm.nih.gov/pubmed/22407700">(source)</a><a id="viz4-data">(data)</a></span>
+    </div>
+  </div>
+  
+  <p>Individuals living in high-income countries produce about three times as much waste as their counterparts in the lowest income countries.  The ratio is a lot lower than would be expected by a linear correlation to <a href="https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita">per capita GDP</a>, which would predict a 10-50x difference in trash production.</p>
+  <p>Even though consumption expenditures differ drastically, municipal solid waste production across cultures are within the same order of magnitude.</p>
+  <p>The differential is somewhat accounted for in the composition of the waste streams. In high-income countries, consumers put a lot of paper products into their waste stream (junk mail, boxboard packaging). In low-income countries, organic waste (food scraps) comprise the majority.</p>
+  <p>A pessimistic interpretation for this is that the high-wealth country data omits too much construction and demolition debris and specific types of damaging waste, such as electronic waste from discarded computers and other devices, which is often shipped overseas.</p>
+  <p>An optimistic interpretation is that waste production is somewhat decoupled from economic wealth. With decoupling, the difference in consumption is due more to increased quality and longevity of goods rather than quantity of goods.  This would follow the general trend in well-being, where each <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2680297/">doubling of income corresponds to a linear increase in life-satisfaction</a>.</p>
+  
+  <p>The waste management disparity is much larger. It takes effort to collect, sort, and properly landfill waste. High-income countries spend about $75 per capita to do this, while low-income countries spend about $1.40 per capita.</p>
+  
+  <div id="viz5">
+    <div class="figure-caption">
+    Global Municipal Solid Waste Disposal Method by Country Income Level <span class="cite"><a href="http://www.ncbi.nlm.nih.gov/pubmed/22407700">(source)</a><a id="viz5-data">(data)</a></span>
+    </div>
+  </div>
+
+  <div id="viz6">
+    <div class="figure-caption">
+    Annual per Capita Municipal Solid Waste Budget ($) by Country Income Level <span class="cite"><a href="http://www.ncbi.nlm.nih.gov/pubmed/22407700">(source)</a><a id="viz6-data">(data)</a></span>
+    </div>
+  </div>
+  
+  <p>In many low-income countries, there’s just not enough money to handle waste carefully, so it’s dumped into open dumps or dumped illegally. In these countries, informal trash pickers contribute labor to do most of the recycling and material reuse that occurs; they divert recyclables from municipal waste streams to recycling centers to earn money, and thereby provide a service their governments can’t afford to provide.</p>
+  <p>Given how little money can be made by picking recyclables from open landfills, recycling and diversion rates in low-income countries may be a decent metric for what is reasonably achievable in resource recovery, discounting the organics that could be composted.</p>
+
+<hr />
+
+<h2 id="part4">PART 4 - TOTAL WASTE HANDLING IN THE UNITED STATES</h2>
+  <h3><em>Waste handling in the U.S.A.</em></h3>
+  <p>We have much more data on waste composition in the U.S than in other parts of the world.  But more data does not necessarily mean better data.</p>
+  <p>In writing this piece, I tried to answer some basic questions:</p>
+  <ol>
+    <li>How much waste do we (U.S. as a country) produce each year?</li>
+    <li>What is the composition?</li>
+    <li>How much of it is landfilled?</li>
+  </ol>
+  <p>This proved difficult.</p>
+  <p>The <a href="https://www.epa.gov/aboutepa/about-office-land-and-emergency-management#orcr">U.S. EPA Office of Resource Conservation and Recovery (ORCR)</a> is responsible for the Resource Conservation and Recovery Act (RCRA).  The ORCR certifies landfills and manages waste statistics.  They track a variety of wastes, including:</p>
+  <ul>
+    <li>Municipal solid waste (MSW)</li>
+    <li>Construction and Demolition Debris</li>
+      <ul>
+        <li>building-related C&D waste</li>
+        <li>roadway-related C&D waste</li>
+        <li>bridge-related C&D waste</li>
+      </ul>
+    <li>Land-clearing debris</li>
+    <li>Municipal sludge (from wastewater treatment facilities)</li>
+    <li>Industrial nonhazardous process waste</li>
+    <li>Agricultural waste</li>
+    <li>Mining waste</li>
+    <li>Oil and gas waste</li>
+    <li>Auto bodies</li>
+    <li>Hazardous waste</li>
+    <li>Hazardous waste of the radioactive variety</li>
+    <li>Transportation parts and equipment</li>
+    <li>Fats, grease, and oils</li>
+  </ul>
+  <p>In total, the EPA manages <a href="https://www.epa.gov/rcra/resource-conservation-and-recovery-act-rcra-overview"><em>2.5 billion tons</em></a> of solid, industrial, and hazardous waste each year.  I haven’t been able to find out how this number breaks down into the constituent waste stream contributors.</p>
+  <p>In a <a href="https://www.epa.gov/sites/production/files/2015-09/documents/2013_advncng_smm_rpt.pdf">recent report</a> the EPA puts municipal solid waste at <em>254 million tons</em> per year, and C&D waste at <em>530 million tons</em> per year.</p>
+  <p>That's a third of the 2.5 billion ton total.</p>
+  <p>Adding in <a href="https://www.epa.gov/smm/beneficial-uses-spent-foundry-sands">10 million tons</a> of foundry sand, <a href="https://www.epa.gov/coalash">130 million tons</a> of coal ash, and <a href="https://rcrainfo.epa.gov/rcrainfoweb/action/modules/br/national/view">34 million tons</a> of hazardous waste gets us to 38%.</p>
+  <p>Also, this contradicts other EPA sources, which state that <a href="https://www.epa.gov/sites/production/files/2015-09/documents/rcras_critical_mission_and_the_path_forward.pdf"><em>"Industrial secondary materials (e.g., coal combustion residuals, foundry sand, and construction and demolition (C&D) materials) account for nearly 90% of all wastes generated in the United States each year."</em></a></p>
+  <p>530 million tons of construction and demolition debris + 10 million tons of foundry sand + 130 tons of coal ash, divided by 2.5 billion tons total, yields a 27% portion, not 90%.</p>  
+  <p>Another report states that <a href="https://www.epa.gov/sites/production/files/2016-03/documents/industrial-waste-guide.pdf"><em>"each year, approximately <em>7.6 billion</em> tons of industrial solid waste are generated and disposed of at a broad spectrum of American industrial facilities."</em></a></p>
+  <p>This is <em>3 times</em> the 2.5 billion number.  And <em>only</em> industrial waste. Why such a large difference?</p>
+  <p>I asked the EPA by email.  Their response:</p>
+  <p><blockquote><em><p>"The 2.5 billion tons figure is compiled from the best available data the Agency has from the last 23 years. This figure includes the following types of waste streams: municipal waste, construction and demolition, hazardous waste, industrial waste, and special waste (i.e., cement kiln dust, mining and mineral processing waste, crude oil and natural gas waste; and fossil fuel combustion waste).</p>
+  <p>There generally will be discrepancies in reconciling the number for this figure because the information comes from both EPA sources as well as industry sources covering various periods of time.</p>
+  <p>For example, the recent estimate for construction and demolition (C&D) waste generation of 530 million tons number in the 2013 <a href="https://www.epa.gov/sites/production/files/2015-09/documents/2013_advncng_smm_rpt.pdf">“Advancing Sustainable Materials Management: Fact and Figures”</a> report includes C&D waste generated from buildings, roads and bridges, and other structures.  The Agency’s prior estimate for C&D waste was much smaller since it included estimated amounts from buildings only.</p>
+  <p>In addition, the 90% industrial secondary materials figure cited in <a href="https://www.epa.gov/sites/production/files/2015-09/documents/rcras_critical_mission_and_the_path_forward.pdf">“RCRA’s Critical Mission and Path Forward”</a> not only includes coal combustion residuals, foundry sand, and C&D material, but also other special and non-hazardous industrial wastes.</p>
+  <p>Lastly, the 7.6 billion tons of industrial solid wastes generated and disposed of cited in the <a href="https://www.epa.gov/sites/production/files/2016-03/documents/industrial-waste-guide.pdf">“Guide for Industrial Waste Management,”</a> originally published in 1999, includes wastewaters whereas the 2.5 billion tons excludes wastewaters for most of the wastes.</p>
+  <p>The Agency recognizes that there is more work that needs to be done to reconcile and improve these waste generation estimates. The Agency continues to enhance the [Sustainable Materials Management] Facts and Figures report by adding updated C&D generation amounts, and is beginning a study to better measure the amount of industrial secondary materials that are generated.  I hope this information is helpful to you."</p></em></blockquote></p>
+  <p>I can't reconcile these numbers.</p>
+  <p>The data is mixing solid wastes with things like <a href="https://www.epa.gov/hw/special-wastes">waste processing water</a> from mining and oil/gas development and other industries, some of which is injected into underground wells for disposal and regulated by the EPA.</p>
+  <p><em>Not</em> included in the waste numbers are nitrogen and phosphorous laden run-off into waterways, plastics and other litter that makes its way into land, rivers, and oceans, and <a href="https://www.epa.gov/criteria-air-pollutants">criteria air pollutants</a> (NOx, SOx, PM, Lead).  Also missing are greenhouse gas emissions, which the the U.S. emitted <a href="https://www.epa.gov/climate-indicators/climate-change-indicators-us-greenhouse-gas-emissions">7 billion metric tons</a> of last year (1 metric ton ~ 1.1 short tons).<p>
+  <p>Trying to draw a box around what we call "waste" and "not waste" is pretty arbitrary, and is more a function of personal impression and decades of compounding federal legislation than a rigorous conservation of mass accounting across phases of matter.</p>
+  <p>Any calls for waste purity and repentance should keep that in mind.</p>
+  <p><em>Solid waste that goes to landfills</em> is subset of all the waste and pollutants the EPA tracks, and is composed primarily of municipal solid waste and construction & demolition debris.</p>
+
+<hr />
+
+<h2 id="part5">PART 5 - FOCUS ON TWO SUBCATEGORIES: MUNICIPAL SOLID WASTE (MSW) and CONSTRUCTION & DEMOLITION DEBRIS (C&D)</h2>
+
+  <p>For the sake of defining a scope to get some idea of our waste quantity and composition, and until the EPA has better information transparency on their own subsets of waste numbers, I've focused on Municipal Solid Waste (MSW), and Construction and Demolition Debris (C&D), two types of waste which we know about from public reports and academic articles, and that that seem to constitute the bulk of our <a href="https://www.epa.gov/landfills">landfills</a>.</p>
+
+  <h3 id="msw"><em>Municipal Solid Waste (MSW)</em></h3>
+  <p>Muncipal Solid Waste (MSW) is the target of the environmentalist adage <em>"reduce, reuse, recycle."</em></p>
+  <p>It's what we think of most when we think of environmental behavior, the icon of our material existence, the <a href="https://en.wikipedia.org/wiki/WALL-E">preeminent example of consumerist ills</a>.</p>
+  <p>Yet, as we saw above, MSW is – at most – a third of what our communities landfill, and an even smaller percentage of our waste.</p>
+  
+  <p>At fault here is the human tendency of <a href="https://en.wikipedia.org/wiki/Availability_heuristic">availability heuristics</a>. We tend to overemphasize the importance of our recent in-person day-to-day experiences. Because most of us experience trash by hauling waste bins of household trash to the curb or dumpster, rather than processing waste as it's coming into a landfill, loading C&D debris, measuring our liquid or gas waste production, or verifying waste numbers in a regional EPA office, we don't have a good idea of our collective waste.</p>
+  <p>Still, there is a lot we can do to reduce MSW, and it is something we have individual control over.</p>
+  <p>EPA keeps track of MSW generation and recycling rates by material (paper, food, metals, etc.) and by product (packaging, durable goods, etc.), and occasionally releases <a href="https://www.epa.gov/smm/advancing-sustainable-materials-management-facts-and-figures-report">reports</a> summarizing the data. This data varies quite a bit. Not all states keep good track of MSW generation. Per-capita production varies by a <a href="http://www.seas.columbia.edu/earth/wtert/sofos/Dolly_Shin_Thesis.pdf">factor of three across states</a> (Hawaii is particularly wasteful), and recycling rates vary from the single digits to over 50% including composting.  Because of the difficulty in tracking waste, the EPA method may be underestimating MSW generation by as much as 50%.</p>
+  
+  <div id="msw-treemap">
+    <div class="figure-caption">
+    U.S. Municipal Solid Waste<span class="cite"><a href="https://www.epa.gov/smm/advancing-sustainable-materials-management-facts-and-figures-report">(source)</a><a id="msw-treemap-data">(data)</a></span>
+    </div>
+    <div id="msw-selector" class="selector">
+      <form id="msw_select1_form">
+        Filter by:
+        <input id="method1" type="radio" name="msw_select1" value="method" checked>Method
+        <input id="product1" type="radio" name="msw_select1" value="product">Product Category
+        <input id="material1" type="radio" name="msw_select1" value="material">Material
+      </form>
+      <form id="msw_select2_form">
+        Then by:
+        <input id="method2" type="radio" name="msw_select2" value="method" disabled>Method
+        <input id="product2" type="radio" name="msw_select2" value="product" checked>Product Category
+        <input id="material2" type="radio" name="msw_select2" value="material">Material
+      </form>
+    </div>
+  </div>
+  <p><em>Note: Graphic doesn't display in Internet Explorer.</em><p>
+  <p>More than a quarter of MSW is food and yard trimmings - biodegradable material that could be composted instead of landfilled. Only 5% of food waste and 60% of yard trimmings are recovered for composting. As a result, about one-third of landfilled MSW is food or yard trimming waste.</p>
+  <p>When organic wastes are discarded in a landfill, the lack of oxygen causes them to break down into methane, a stronger greenhouse gas than carbon dioxide. This methane is released from the landfill - often through direct venting - and greatly offsets any carbon sequestration benefit from burying the carbon-based materials. Composting organic wastes so they break down in an aerobic environment, with oxygen, releases carbon dioxide instead of methane, and the compost can then be used as fertilizer, displacing other carbon-intensive fertilizers. This has the effect of making net-negative carbon emissions, as opposed to landfilling, which can be comparable only if it captures most of the methane and uses it to generate power, displacing more carbon-intensive sources of power generation.</p>
+  <p>Methane emissions from landfills alone are equivalent to <a href="http://www.eesi.org/papers/view/fact-sheet-landfill-methane">103 million metric tons</a> of carbon dioxide; meaning, roughly speaking, the <em>methane emissions</em> from landfills are about half as important as the total waste tonnage going to landfills (or a third of the environmental cost).  Capturing methane at the few thousand landfills is then roughly as significant an action as <em>doubling</em> the recycling rate.</p>
+  <p>Another quarter of MSW produced is paper, of which half is corrugated boxes and a quarter newspapers, magazines, office paper and mail.</p>
+  
+  <h3 id="cd"><em>Construction and Demolition Debris</em></h3>
+  <p>The next major category of our landfill waste is construction and landfill debris.</p>
+  <p>Construction and demolition waste from building, bridge, and road construction and demolition accounts for somewhere between <a href="http://ascelibrary.org/doi/abs/10.1061/(ASCE)0733-9364(1996)122:1(55)">26%</a> and <a href="https://www.epa.gov/smm/advancing-sustainable-materials-management-facts-and-figures-report">70%</a> of solid waste production.</p>
+  <p>As is usual with these sorts of studies, there are <a href="http://dx.doi.org/10.1016/j.wasman.2014.05.010">many ways to quantify waste</a>, and few studies have verified data.  Earlier estimates of C&D waste put the total at ~150 million tons/yr [<a href="https://web.archive.org/web/20150912044556/http://epa.gov/climatechange/wycd/waste/downloads/Analyzing_C_D_Debris.pdf">1</a>][<a href="https://www.epa.gov/sites/production/files/2016-03/documents/charact_bulding_related_cd.pdf">2</a>] with the majority of waste from renovation (~44%) and demolition projects (~48%). New construction only accounts for about 8% of debris.</p>
+  
+  <div id="viz8">
+    <div class="figure-caption">
+    U.S. Building Construction & Demolition Debris Source (million tons) by Type <span class="cite"><a href="https://www.epa.gov/sites/production/files/2016-03/documents/charact_bulding_related_cd.pdf">(source)</a><a id="viz8-data">(data)</a></span>
+    </div>
+  </div>
+
+  <div id="viz9">
+    <div class="figure-caption">
+    U.S. Construction & Demolition Debris Composition <span class="cite"><a href="https://www.epa.gov/smm/advancing-sustainable-materials-management-facts-and-figures-report">(source)</a><a id="viz9-data">(data)</a></span>
+    </div>
+  </div>
+  
+  <p>C&D waste is largely composed of asphalt and concrete (40-50%), wood (20-30%), and drywall (5-15%), though this study seemed to only include building C&D related wastes, excluding road and bridge construction and demolition.</p>
+  <p>Newer estimates put the total at <a href="https://www.epa.gov/smm/advancing-sustainable-materials-management-facts-and-figures-report">530 million tons</a>, over 90% of which is concrete or asphalt, with half the waste from concrete and asphalt from road and bridge demolition. Rough percentages and amounts haven't changed much over twenty years; wood (20-30%), and drywall (5-15%) are still the same proportions of building-related C&D debris. Asphalt shingles are the next most common, with plastic, bricks, metal, ceramic, insulation, old corrugated containers (OCC, meaning big cardboard boxes) making up the rest.</p>
+  <p>This waste ends up equally in MSW or special C&D landfills, which require less care because most of the material is inert and non-toxic.  Only 20-30% of C&D waste is recycled.  Of this, asphalt has a particularly high recycling rate of around <a href="http://pubs.usgs.gov/circ/1998/c1176/c1176.pdf">70%</a>-<a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.energy.29.062403.102215">80%</a>, being reused as asphalt pavement again, while only <a href="https://web.archive.org/web/20150912044556/http://epa.gov/climatechange/wycd/waste/downloads/Analyzing_C_D_Debris.pdf">50%</a>-<a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.energy.29.062403.102215">60%</a> of concrete is recycled.</p>
+  <p>Cement, the binding agent in concrete, while only 12% of the mass of concrete, accounts for nearly <a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.energy.29.062403.102215">94% of the energy</a>, and the vast majority of its <a href="http://blogs.ei.columbia.edu/2012/05/09/emissions-from-the-cement-industry/">carbon emissions</a>.  While new cement still needs to be made, because of the amount of concrete production, increasing the recycling rate of concrete from old buildings into new aggregate by 1% would reduce greenhouse gas emissions by <a href="http://pubs.acs.org/doi/abs/10.1021/es071345l">0.3 million metric tons</a>.</p>
+  <p>There is a large variation in C&D debris recovery rates between states, varying between <a href="https://www.epa.gov/sites/production/files/2016-03/documents/charact_bulding_related_cd.pdf">20-80%</a>, linked to the wide variation in the cost of inert waste disposal in C&D landfills from state to state.</p>
+  
+  <p><strong>[Examples of a high cost/high recovery state and a low cost/low recovery state.]</strong></p>
+
+  <div id="viz10">
+    <div class="figure-caption">
+    U.S. Building Construction & Demolition Debris Disposal Method <span class="cite"><a href="https://web.archive.org/web/20150912044556/http://epa.gov/climatechange/wycd/waste/downloads/Analyzing_C_D_Debris.pdf">(source)</a><a id="viz10-data">(data)</a></span>
+    </div>
+  </div>
+  
+  <p>While metals are a small component of C&D debris, they warrant special mention.  More than <a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.energy.29.062403.102215">80%</a> of C&D steel is recycled.  Aluminum and copper in particular both have high embodied energy and carbon, which means that using recycled material is <a href="https://www3.epa.gov/warm/pdfs/Energy_Impacts.pdf">much less energy and carbon intensive than using virgin material</a>. Also, they’re found in the waste stream in relatively small quantities and can be easily separated; essentially high<a href="http://dx.doi.org/10.1016/S0378-7788(03)00066-5">recycling-value-density</a>.</p>
+  <p>Unfortunately, aluminum and copper recycling rates in C&D waste are a low <a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.energy.29.062403.102215">30%</a>-<a href="http://hdl.handle.net/20.500.11822/8702">53%</a> for copper and <a href="http://hdl.handle.net/20.500.11822/8702">42%-70%</a> for aluminum.</p>
+
+<hr />
+
+<h2 id="part6">PART 6 - A CLOSER LOOK AT MUNICIPAL SOLID WASTE RECYCLING</h2>
+  <h3><em>One man's trash is another man's small-margins commodities exchange market</em></h3>
+  <p>Of the MSW waste we generate, two-thirds of it ends up in landfills.  The rest is recovered through recycling, composting, and - in some places - incineration.</p>
+  <p>But not everything sent to a recycling center gets recovered. What ends up actually getting recycled depends on the kind of recycling, the quality of the sorted recyclables, and the value of the materials on the market.</p>
+  <h3 id="cd"><em>Curbside Recycling (Paper, plastics, steel, aluminum, glass)</em></h3>
+  <p>The economics of recycling are often missed in calls for <a href="https://en.wikipedia.org/wiki/Zero_waste">zero waste</a>.  It costs money to sort recycling and make it useable to manufacture new products. And there needs to be a demand for the recycled materials. Manufacturers will buy slightly lower quality recycled material only if it is sufficiently cheaper than using virgin material.</p>
+  <p>Plastics are a good example of this. As oil prices drop, among other factors, <a href="http://www.wsj.com/articles/recycling-becomes-a-tougher-sell-as-plastic-prices-drop-1428279575">it is cheaper</a> to use virgin polyethylene terephthalate (the feedstock for plastic bottles and other consumer packaging) than to use recycled PET for plastic bottle manufacture. These price fluctuations can be substantial. The value of curbside recycling has varied by a <a href="http://zerowaste.com/recycling-markets/">factor of three</a> over the last two decades, often with sharp price drops in a matter of months. When the prices drop, recyclers can take big losses, and many may end up sending once recyclable material <a href="http://www.npr.org/sections/money/2015/03/27/395815221/episode-613-trash">to the landfill</a>, or <a href="http://www.twincities.com/2017/01/14/where-does-your-recycling-go-the-answer-may-surprise-you/">overseas</a> where it is cheaper to process. Some materials - like plastic bags - are simply too costly and difficult to recycle to justify the benefit in doing so.</p>
+  <p>In recent years, another factor that has been affecting the profitability of recycling is the shift to <a href="https://www.washingtonpost.com/local/dc-politics/american-recycling-is-stalling-and-the-big-blue-bin-is-one-reason-why/2015/06/20/914735e4-1610-11e5-9ddc-e3353542100c_story.html">single stream recycling</a>. Single stream recycling was implemented to boost recycling rates. The idea was that by combining all recycling together into one bin, the ease of recycling would boost recovery percentage. While it has done so, it has made it harder produce high quality recycled material compared to <a href="https://web.archive.org/web/20150513060220/https://yosemite.epa.gov/r10/HOMEPAGE.NSF/Topics/ccrs/$FILE/12.+Informational+Slideshow.pdf">separated recycling stream</a>.</p>  
+  <p>Single stream recycled material is collected and sent to Material Recovery Facilities (MRFs), where various blowers, optical scanners, magnets, and gravity systems separate the material into different streams. This process is imperfect, and there is significant contamination in the end products. For example, up to <a href="http://stewardshipontario.ca/wp-content/uploads/2016/03/2013-MRF-Material-Composition-Study-March-22-16-1.pdf">10% of paper bales may include plastics</a> and vice-versa, as air sorters confuse light plastic and heavy paper.</p>
+  <p>Much material that could be recycled is lost in the process, ending up as contaminants in another material stream, or part of the <a href="http://library.oregonmetro.gov/files/mrf_article_april_2006.pdf">MRF waste residuals</a> which get landfilled.  Glass complicates the process too; glass often breaks during collection, creating fine shards that are some of <a href="http://your.kingcounty.gov/solidwaste/about/documents/MRF_assessment.pdf">the trickiest and expensive contaminants to deal with</a> in an MRF.</p>
+  <p>Imperfect sorting explains part of the difficulty in materials recovery facility (MRF) operation.</p> 
+  <p>Another issue is contamination at the bin. Single stream recycling has encouraged the habit of “<a href="https://web.archive.org/web/20170221221939/http://beginwiththebin.org/resources/for-communities/2014-national-recycling-survey">aspirational recycling</a>" - throwing non-recyclable materials into bins because the hopeful do-gooder thinks they might or should be recyclable, but they can’t be handled by the recycling facility. As much as <a href="http://fortune.com/2015/09/03/waste-management-recycling-business/">one sixth</a> of the material sent to MRFs isn't recyclable. <a href="http://www.ecocycle.org/dirtydozen">Common contaminants</a> include plastic bags, loose metal, shredded paper, flattened containers and cans (which get confused for paper), and containers with substantial liquid or food residue still inside. These contaminants end up causing cascading problems as they are mixed with other clean recycling streams, <a href="http://www.calrecycle.ca.gov/Publications/Documents/General/2009023.pdf">contaminating them as well</a>.</p>
+  <p>While single stream recycling has boosted total recovery rates for materials as people are more willing to recycle, it <a href="http://dx.doi.org/10.1016/j.wasman.2014.09.012">decreases the overall fraction of recoverable materials, costs more, and uses more energy</a>.</p>
+  <p>Single-stream recycling is therefore a local optimum. It may be the best way to increase recovery rates for a population unwilling or unable to properly separate materials for recycling, but it won't get us to recycling rates above 90% or higher as advocated by zero-waste enthusiasts, even assuming that all recyclables we produce can find a willing buyer.</p>
+  <p>If further increasing the recycling rate ends up costing more and using more energy, then it undermines the environmental justification for doing so. I'm a bit skeptical of studies that try to determine optimal recycling rates, especially ones as low as <a href="http://ensia.com/features/is-it-time-to-rethink-recycling/">10%</a>, but they make a case that the optimal rate is significantly less than 100%.</p>
+  <p>With this in mind, it is likely impossible or counter-productive to achieve zero waste.  Zero waste is loosely defined, and some definitions imply that zero waste means recovering 90-98+% of recoverable materials in municipal solid waste, using zero waste as process to improve recovery rates and redesign products rather than an explicit landfill diversion goal.  Still, some cities like <a href="https://sfenvironment.org/zero-waste-by-2020">San Francisco</a> are trying to reach 100% diversion rate zero waste, without incineration.  The last 10% will be enormously difficult, and will <a href="http://www.waste360.com/waste-reduction/reaching-zero-waste-impossible-without-strategies-reducing-and-reusing">not be possible through recycling alone</a>.  There are some major intiatives and options to get there as I detail in the next section.</p>
+
+<hr />
+  
+<h2 id="part7">PART 7 - MAJOR INITIATIVES AND STRATEGIES TO REDUCE LANDFILL WASTE</h2>
+  <p>There are some major initiatives too boost material recovery.  The EPA's <a href="https://www.epa.gov/smm/epa-sustainable-materials-management-program-strategic-plan-fiscal-years-2017-2022">Sustainable Materials Management Strategic Plan</a> focuses on food waste, built environment, and sustainable packaging as priorities for the next decade.</p>
+    
+  <h3 id="foodwaste"><em>Food Waste</em></h3>
+  <p>Most food waste in the U.S. is landfilled, creating methane emissions as described above, and missing out a on a lot of fertilizer potential. Starting or participating in existing <a href="http://mitsloan.mit.edu/actionlearning/media/documents/s-lab-projects/Guide-to-Composting.pdf">municipal composting programs</a> is the primary way to reduce this landfilled food-waste.</p>
+  <p>Another alternative are <a href="https://www3.epa.gov/region9/waste/features/foodtoenergy/">anaerobic digesters</a>, which can take food, garden, and shredded paper waste to make methane for power production. Anaerobic digestion is a much better capture mechanism than landfill gas, and the leftover material can then be composted. Anaerobic digestion  reduces emissions through the composting process and and through producing power from the methane, offsetting emissions from other (i.e. fossil fuel) electricity production.  It is, however, more costly to build than municipal composting infrastructure.</p>
+  
+  <h3 id="cdr"><em>Construction and Demolition Debris Recycling</em></h3>  
+  <p>There is a push in the construction industry to <a href="http://www.cdrecycling.org/">reduce C&D debris and increase recycling rates</a>, partly because of environmental ratings like <a href="http://www.usgbc.org/credits/new-construction-commercial-interiors-core-shell-schools-nc-retail-nc-retail-ci-healthcare-0">LEED</a> and partly because it costs a lot to buy material that isn't used and then pay to dispose of it. Diverting demolition debris from homes and renovations will be the difficult part of this.</p>
+  
+  <h3 id="sp"><em>Sustainable packaging</em></h3>
+  <p>There are <a href="http://www.ecovativedesign.com/">a few companies</a> that provide biodegradable/compostable packaging.  Coupled with municipal composting programs, this has the potential to reduce quite a bit of packaging waste. It is a tricky problem to produce packaging that does not degrade and can contain food for a long shelf life, but then quickly degrades once no longer needed. More research is needed here.</p>
+  
+  <h3 id="epr"><em>Expanded Producer Responsibility (EPR)</em></h3>
+  <p><a href="https://en.wikipedia.org/wiki/Extended_producer_responsibility">Expanded Producer Responsibility</a> is legislation aimed at making manufacturers responsible for the end life of their products.  Expensive and large items like refrigerators, tires, and computers are good examples of this.</p>
+
+  <h3 id="ewaste"><em>Electronic Waste</em></h3>
+  <p>Expanded Producer Responsibility is perhaps most promising for electronics, which are notoriously difficult to recycle because of the variety of materials and care needed to disassemble them.  There is <a href="http://dx.doi.org/10.1016/j.resconrec.2005.06.001">not enough capacity</a> to recycle all of our electronics here in the U.S., and so while illegal under the <a href="https://en.wikipedia.org/wiki/Basel_Convention">Basel Convention</a>, much of our electronic waste is <a href="https://www.ncbi.nlm.nih.gov/pubmed/19846207">shipped overseas to poor countries</a> with lax environmental controls where it is burned or dissolved in strong acids, creating acute environmental and health problems. For those interested in reducing toxicity and health impacts of our waste, electronics waste is perhaps the biggest culprit and there are some <a href="http://www.ban.org/trash-transparency">organizations</a> working on making sure we don't export our hazardous waste.</p>
+  
+  <h3 id="incineration"><em>Incineration</em></h3>
+  <p>There remains an alternative to landfills.  Trash can be burned as a fuel to produce power, and such waste-to-energy plants are common in Scandinavian countries. In fact, Sweden and Norway <a href="http://www.fortum.com/countries/se/om-fortum/energi-produktion/varmeproduktion-och-kraftvarme/avfallsbransle/pages/default.aspx">import trash</a> from other EU countries to burn in their waste-to-energy plants because they cannot produce enough at home.</p>
+  <p>Municipal waste isn't the easiest thing to burn. It's heat content btu/lb is much lower than coal and other feedstocks, meaning you need to put a lot more of it in to the furnace to get the same energy out. And there is the really nasty problem of how to clean the exhaust gases to contain all of the toxins that are generated when you combine a smattering of complex molecules together at high temperatures. This air pollution risk, combined with the tendency for planners to site incinerators in places where people won't protest (because they are poor), has made it a key environmental justice issue that has earned it a terrible reputation from many environmental groups in the U.S.</p>
+  <p>There is also the complaint that many could-be-recoverable materials get burned as well.</p>
+  <p>On the positive side, incineration has two environmental benefits:</p>
+  <ol>
+    <li>Incinerators displace landfills and their resulting methane emissions and soil/water contamination.</li>
+    <li>And incinerators displace electricity generation from other sources like coal-fired generation, which produces a lot of the same nasty air pollutants.  Every <a href="http://www.americanchemistry.com/Policy/Energy/Energy-Recovery/2014-Update-of-Potential-for-Energy-Recovery-from-Municipal-Solid-Waste-and-Non-Recycled-Plastics.pdf">1 ton of MSW burned for fuel displaces 0.4 ton of coal</a>.</li>
+  </ol>
+  <p>Overall it's unclear whether incineration is a clear winner or loser.  Incineration may detract from recycling and Expanded Producer Responsibility laws, and it may disincentivize the development of a <a href="https://en.wikipedia.org/wiki/Circular_economy">circular economy</a> where materials are perpetually reused.</p>
+  <p>But it also may be cheaper way to deal with waste, and a decent way to produce baseload power that is currently met with coal or nuclear plants which have serious waste problems of their own. Coal slurry and coal ash is <a href="https://thinkprogress.org/epa-will-not-declare-coal-ash-a-hazardous-waste-14a2f6d9c5a5">nearly hazardous waste</a>. It's really nasty stuff, but it hasn't been classified as hazardous because of the size of the problem of dealing with it if it were.  Nuclear waste is on a different level of NIMBY (Not In My Back Yard) concerns. While there is an extremely low likelihood of someone making a dirty bomb from nuclear waste, the potential damage is from any given incident is very high. Thus the risk – likelihood multiplied by damage – may be greater than the risks posed by air quality impacts of incineration, especially since <a href="http://www.reuters.com/article/us-usa-securtity-nuclear-idUSBRE8711LG20120802">we aren't very good at keeping nuclear material secure</a>.</p>
+  <p>Perhaps if we get to a world where we are more sane with waste and recycling, we'll be better at equitable sitting of incinerators and air scrubbing too.</p>
+
+<hr />
+
+<h2 id="part8">PART 8 - RELATIVE IMPORTANCE AND INDIVIDUAL ACTION</h2>
+  <p>One strategy which I deliberately omitted in the previous section is that of deindustrialization or <a href="https://en.wikipedia.org/wiki/Neo-Luddism">primitivism</a> and related movements.  Essentially the idea that we can reduce our environmental footprint through self-sufficient <a href="https://en.wikipedia.org/wiki/Back-to-the-land_movement">back-to-the-land</a> agrarianism.</p>
+  <p>I appreciate the ideas of minimalism and self-sufficiency. These are great ideas to save money, and build self-esteem and self-purpose. But much of what were once geographic or economic necessities are no longer in our current globalized economy. Extreme self-sufficiency is at odds with specialization, automation, and the power of <a href="https://en.wikipedia.org/wiki/Comparative_advantage">comparative advantage</a>.</p>
+  <p>In a globalized economy, extreme self-sufficiency and hyper-localism amounts to material Balkanization that <em>can</em> reduce resilience, be more costly, and increase environmental harm. And even when environmental harm is reduced, it may be that the cost of doing so means valuing your time at pennies on the hour, at which point it makes more sense to offset your impacts - especially when the harms are globalized (GHG emissions) rather than localized (air pollution).</p>
+  <p>While I do think <em>in general</em> reducing environmental damage tends be more effective when "more local" rather than "less local," the need to calculate and compare is inescapable. The compulsion towards minute and mundane impacts will not change our collective environmental and social trajectory.</p>
+  <p><a href="https://www.withouthotair.com/c1/page_3.shtml"><em>"If everyone does a little, we’ll achieve only a little."</em></a></p>
+  <p>The goal of recycling and waste management should be to prioritize and capture the most valuable components of our waste stream so they can reduce material costs, reduce environmental impact, and prolong nonrenewable resource supplies.  In that spirit, here is a comparison of household recyclables to emphasize recycling importance and discourage "aspirational recycling," and a comparison of actions to reduce waste.</p>
+  
+  <h3 id="relative">Relative Recycling Importance</h3>  
+  <div id="recycling-comparison">
+    <div class="figure-caption">
+    Recycling Greenhouse Gas Impact Comparison <span class="cite"><a href="https://www.epa.gov/warm/versions-waste-reduction-model-warm">(source)</a><a href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle-0">(source)</a><a href="https://en.wikipedia.org/wiki/Gasoline_gallon_equivalent">(source)</a><a id="recycling-comparison-data">(data)</a></span>
+    </div>
+  </div>
+  <p><em>(If you contest this data, please, please send me an email with better evidence. It's probably most important I get this right of any numbers on this page.)</em></p>
+
+<hr />
+
+<h2 id="part9">PART 9 - CLOSING THOUGHTS/CONCLUSION</h2>
+<p>After four years, the trash experiment became limiting.  There were many things I liked doing but avoided because they created trash. Buying new shoes. Going hiking with friends and being extremely limited on food selection. Making things.</p>
+<p>This was perhaps the biggest limitation. I really enjoy and admire electronics projects, woodworking, metalworking, bike maintenance, and gardening. But practicing these skills require material, tools, and the packaging that comes with them. During the four-year experiment, I switched over to doing more software projects and reading to compensate.</p>
+<p>Also, the experiment was socially exhausting. Friends and family were mildly annoyed and mostly ambivalent. The waste experiment consumed most of my personal quota of "weirdness points" that each person gets before people start avoiding them.</p>
+<p>Even though I'm done with the experiment, I still find myself hyper-aware of waste. I get annoyed at the frivolity with which a single granola bar wrapper or chip bag is discarded. I cringe seeing uneaten food and unused napkins thrown away. I'm baffled by the disutility on the shelves of convenience and department stores. I'm working on noticing this less so I can be out in public and not have it dominate my experience. It isn't <em>that</em> important. It's helpful to calibrate environmental rage relative to impact. Save it for all-glass buildings and the lack of adequate biking infrastructure.</p>
+<p>What I gained from the experience (besides a pile of trash, so of which I threw away and some which I still have), are helpful life habits and mindsets. I have greater appreciation for the useful material possessions in my life, and treat them with greater care. I eat healthier and cook better; when you avoid packaging, meals end up being mostly produce, bulk foods, and some canned goods. It developed my sense of contentment from not having stuff that clutters and consumes space.  I relied more on shared goods (library books, tools, compost bins), which made me more willing to share-alike and not feel the need to <em>own</em> something simply because I might at some point use it.</p>
+<p>If you want to try the experiment, four to six weeks is probably long enough to get a sense of what you produce and have it in your mind during a few durable goods purchasing decisions. Sign up for the do-not-mail list. Spend an evening trying out dumpster diving or just curbside scavenging. (Dumpster diving is an embellished term). Inquire about municipal composting if your municipality doesn't already have it. And please, calibrate your environmental attention and energy relative to impact, not identity.</p>
+
+<hr />
+
+<h2 id="tldr">SUMMARY - TL;DR (Tool Long; Didn't Read)</h2>
+  <em>The short summary of the text wall above:</em>
+  <ul>
+    <li>I produced 26.6 pounds of trash over four years in an environmentalist-identity driven tilt to stop sending things to landfills.</li>
+    <li>This was an interesting exercise, but is a small portion of overall landfill waste that includes lots of construction and demolition debris, and was not that important for the reasons why recycling matters.</li>
+    <li>"Zero-waste" is probably impossible, and would end up increasing (1) cost and (2) emissions from waste management, undermining is the whole point of landfill diversion.</li>
+    <li>Recycling is a business. Commodity prices fluctuate. Single-stream recycling ends up making poor-quality recycling commodities that sell for less.  But it also increases overall recycling rate.  A local optimum.</li>
+    <li>Don't be an "aspirational recyclist" that puts things in recycling that aren't recyclable.  It makes the end recycling less valuable and will go to the landfill anyways.</li>
+    <li>You have way more leverage reducing what you buy than in recycling what you've used.</li>
+    <li>Sign up for a do-not-mail list to stop getting junk mail.</li>
+    <li>Recycle metals (aluminum, steel, copper, rare earths) and electronics. Electronics matter because they can be particularly toxic/damaging when illegally and inevitably exported.</li>
+    <li>Compost food scraps, and support a municipal composting program if your city doesn't have one.
+    <li>Try dumpster diving if you're inclined; going a few times a year will probably offset what trash you make, and is a lot easier than nit-picking waste.</li>
+    <li>Some smart people are working on reducing waste from building construction, reducing food waste to landfills, and making packaging less crappy.  If you are also smart and into that sort of thing, they could probably use your help.</li>
+    <li>Extended Producer Responsibility (EPR) (producers responsible for the end-life of the things they sell and their packaging) may help reduce waste, or become an enormous kerfuffle. It is best suited for large, expensive items like appliances or computers.  Now you at least know it exists if you didn't already. And you got to read the word kerfuffle.</li>
+    <li>We could incinerate things that aren't worth recycling. There are real concerns for air quality. The technology exists to make it clean. I’m not sure if it’s overall cheaper than landfilling.  NIMBYism is strong against both landfills and incinerators wherever they are proposed.</li>
+    <li>Don't be an environmentalist on an anti-landfill tilt and spend four years obsessing about something that is relatively unimportant in comparison to other environmental concerns and personal actions.  But try it for a little bit if you just have too much stuff and want some weird life-hack approach to develop the mental habits to be content with less.</li>
+  </ul>
+  
+<hr />
+
+<h2 id="appendix">APPENDIX - FURTHER READING</h2>
+
+  <ul>
+    <li>
+    <a href="https://www.epa.gov/aboutepa/about-office-land-and-emergency-management#orcr">U.S. EPA Office of Resource Conservation and Recovery (ORCR)</a>
+    <ul>
+      <li>Oversees the <a href="https://www.epa.gov/rcra/resource-conservation-and-recovery-act-rcra-overview">resource conservation and recovery act</a>
+        <ul>
+          <li>The EPA website contains <a href="https://www.epa.gov/smm/studies-summary-tables-and-data-related-advancing-sustainable-materials-management-report">research notes and memos</a>
+          </li>
+
+          <li>The current <a href="https://www.epa.gov/smm/epa-sustainable-materials-management-program-strategic-plan-fiscal-years-2017-2022">Sustainable Materials Management strategic plan</a> focuses on food waste, built environment, and sustainable packaging.</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>NOTE</strong>: The EPA frequently updates their webpages (or gets defunded) and breaks links in doing so. Try the <a href="https://archive.org/web/">Wayback Machine</a> if this is a problem.</li>
+    </ul>
+    </li>
+    <li>Industry news:
+      <ul>
+        <li>
+          <a href="http://www.wastedive.com/">http://www.wastedive.com/</a>
+        </li>
+        <li>
+          <a href="http://www.waste360.com/">http://www.waste360.com/<a>
+        </li>
+      </ul>
+    </li>
+    <li>Academic Journals: 
+      <ul>
+        <li>Waste Management</li>
+
+        <li>Environmental Science and Technology</li>
+
+        <li>Resources, Conservation and Recycling</li>
+
+        <li>Journal of the Air and Waste Management Association</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 id="references">References</h3>
+  <ul>
+    <li>
+      <a href="https://www.epa.gov/sites/production/files/2016-03/documents/conversions.pdf">Weight to volume conversions for waste components</a>
+    </li>
+    <li>Literature review done through <a href="https://www.scopus.com/">scopus</a> using search terms: (SRCTITLE("Waste Management") OR SRCTITLE("Resources, Conservation and Recycling")) OR SRCTITLE("Environmental Science and Technology")) AND (TITLE-ABS-KEY("waste") OR TITLE-ABS-KEY("recycl*"))</li>
+  </ul>
+
+  <hr />
+
+  <h3 id="credits">Credits</h3>
+
+  <p><em>Thank you to Katherine Watt for her keen editing and to my fellow coop members at Skullduggery, Houseasaurus, and Crows Nest for making it possible.  Particulary Sam Tanyos for his worm compost wizardy, Daniel McClosky and Alex Malz for their dumpster diving instruction, and Nathan Sparks for his composting and recycling enthusiasm.</em>
+  </p>
+  
+  <hr />
+
+  <h3 id="edits">Edits</h3>
+
+  <p><em>6 May 2017</em>. Draft Published.</p>
+</div>
+<!-- TOOLTIP FOR VISUALIZATIONS -->
+<div id="tooltip" class="hidden"></div>
+</body>
+
+<!-- SCRIPTS -->
+
+<!-- d3.js -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-98629042-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- CUSTOM SCRIPTS AND DATA FOR VISUALIZATIONS -->
+
+<script type="text/javascript">//script to add download links
+function addDownloadURI(link_id, data_id) {
+  link = document.getElementById(link_id)
+  link.download = link_id + ".csv";
+  var data = d3.select(data_id).text();
+  link.href = "data:text/csv;charset=utf-8," + encodeURI(data);
+}
+</script>
+
+<script type="text/javascript">//basicBar.js
+function basicBar(params){
+  //basic tool for making horizontal barcharts
+  var valueLabelWidth = 30; // space reserved for value labels (right)
+  var barHeight = 20; // height of one bar
+  var barLabelWidth = 100; // space reserved for bar labels
+  var barLabelPadding = 5; // padding between bar and bar labels (left)
+  var gridLabelHeight = 18; // space reserved for gridline labels
+  var gridChartOffset = 3; // space between start of grid and first bar
+  var maxBarWidth = 420; // width of the bar with the max value
+  var data = d3.csv.parse(d3.select(params.data).text());
+  
+  //console.log(data)
+
+  // accessor functions 
+  var barLabel = function(d) { return d[params.labelName]; };
+  var barValue = function(d) { return parseFloat(d[params.valueName]); };
+
+  // sorting
+  var sortedData = data.sort(function(a, b) {
+   return d3.descending(barValue(a), barValue(b));
+  });
+
+  // scales
+  var yScale = d3.scale.ordinal().domain(d3.range(0, sortedData.length)).rangeBands([0, sortedData.length * barHeight]);
+  var y = function(d, i) { return yScale(i); };
+  var yText = function(d, i) { return y(d, i) + yScale.rangeBand() / 2; };
+  var x = d3.scale.linear().domain([0, d3.max(sortedData, barValue)]).range([0, maxBarWidth]);
+
+  // svg container element
+  var chartWidth = maxBarWidth + barLabelWidth + valueLabelWidth;
+  var chartHeight = gridLabelHeight + gridChartOffset + sortedData.length * barHeight
+  var chart = d3.select(params.id)
+    .append("svg")
+    .attr('width', chartWidth)
+    .attr('height', chartHeight);
+
+  // bar labels
+  var labelsContainer = chart.append('g')
+    .attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+  labelsContainer.selectAll('text').data(sortedData).enter().append('text')
+    .attr('y', yText)
+    .attr('stroke', 'none')
+    .attr('fill', 'black')
+    .attr("dy", ".35em") // vertical-align: middle
+    .attr('text-anchor', 'end')
+    .text(barLabel);
+  
+  // bars
+  var barsContainer = chart.append('g')
+    .attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+  barsContainer.selectAll("rect").data(sortedData).enter().append("rect")
+    .attr('y', y)
+    .attr('height', yScale.rangeBand() - 4)
+    .attr('width', function(d) { return x(barValue(d)); })
+    .attr('stroke', 'steelblue')
+    .attr('fill', 'steelblue');
+
+  // label units
+  function addLabelUnits(label, params) {
+    if (typeof params.units === "undefined"){
+      return label;
+    }
+
+    if (typeof params.unitsLocation === "undefined"){
+      params.unitsLocation = "post";
+    }
+    
+    if (params.unitsLocation === "pre"){
+      return (params.units + " " + label)
+    } else {
+      return (label + " " + params.units)
+    };
+  };
+    
+  // bar value labels
+  barsContainer.selectAll("text").data(sortedData).enter().append("text")
+    .attr("x", function(d) { return x(barValue(d)); })
+    .attr("y", yText)
+    .attr("dx", 3) // padding-left
+    .attr("dy", ".35em") // vertical-align: middle
+    .attr("text-anchor", "start") // text-align: right
+    .attr("fill", "black")
+    .attr("stroke", "none")
+    .text(function(d) { return addLabelUnits(d3.round(barValue(d), 2), params); });
+};
+</script>
+
+<script type="text/javascript">//horizontalBar.js
+// label units
+function addLabelUnits(label, params) {
+	if (typeof params.units === "undefined"){
+	  return label;
+	};
+	if (typeof params.unitsLocation === "undefined"){
+	  params.unitsLocation = "post";
+	};
+	if (typeof params.roundDigits === "undefined"){
+	  params.roundDigits = 0;
+	};
+	if (params.unitsLocation === "pre"){
+	  return (params.units + " " + label)
+	} else {
+    if ((params.units == "lbs") && (params.convert == "kg")){
+      labelHTML = d3.round(label,params.roundDigits) + " " + params.units + " (" + d3.round(label*0.453592,params.roundDigits) + " kg)";
+      return labelHTML;
+    } else {    
+	  return (label + " " + params.units)
+    }
+	};
+};
+function horizontalBar(params){
+  //basic tool for making horizontal barcharts
+  var barLabelWidth = 100; // space reserved for bar labels (left)
+  var barLabelPadding = 5; // padding between bar and bar labels (left)
+  var maxBarWidth = 405; // width of the bar with the max value
+  var barValueWidth = 135; // space reserved for value labels (right)
+  
+  var barHeight = 20; // height of one bar  
+  var gridLabelHeight = 18; // space reserved for gridline labels
+  var gridChartOffset = 3; // space between start of grid and first bar
+  var data = d3.csv.parse(d3.select(params.data).text());
+  
+  // accessor functions for csv data
+  var barLabel = function(d) { return d[params.labelName]; };
+  var barValue = function(d) { return parseFloat(d[params.valueName]); };
+  
+  // sorting and filtering
+  //var sortedData = data.sort(function(a, b) {
+  // return d3.descending(barValue(a), barValue(b));
+  //});
+
+  // scales
+  var yScale = d3.scale.ordinal().domain(d3.range(0, data.length)).rangeBands([0, data.length * barHeight]);
+  var y = function(d, i) { return yScale(i); };
+  var yText = function(d, i) { return y(d, i) + yScale.rangeBand() / 2; };
+  var x = d3.scale.linear().domain([0, d3.max(data, barValue)]).range([0, maxBarWidth]);
+
+  // svg container element
+  var chartWidth = barLabelWidth + barLabelPadding + maxBarWidth + barValueWidth;
+  var chartHeight = gridLabelHeight + gridChartOffset + data.length * barHeight
+  var chart = d3.select(params.id)
+    .append("svg")
+    .attr('width', chartWidth)
+    .attr('height', chartHeight);
+
+  // bar labels
+  var labelsContainer = chart.append('g')
+    .attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+  labelsContainer.selectAll('text').data(data).enter().append('text')
+    .attr('y', yText)
+    .attr('stroke', 'none')
+    .attr('fill', 'black')
+    .attr("dy", ".35em") // vertical-align: middle
+    .attr('text-anchor', 'end')
+    .text(barLabel);
+  
+  // bars
+  var barsContainer = chart.append('g')
+    .attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+  barsContainer.selectAll("rect").data(data).enter().append("rect")
+    .attr('y', y)
+    .attr('height', yScale.rangeBand() - 4)
+    .attr('width', function(d) { return x(barValue(d)); })
+    .attr('fill', 'steelblue');
+    
+  // bar value labels
+  barsContainer.selectAll("text").data(data).enter().append("text")
+    .attr("x", function(d) { return x(barValue(d)); })
+    .attr("y", yText)
+    .attr("dx", 3) // padding-left
+    .attr("dy", ".35em") // vertical-align: middle
+    .attr("text-anchor", "start") // text-align: right
+    .attr("fill", "black")
+    .attr("stroke", "none")
+    .text(function(d) { return addLabelUnits(barValue(d), params); });
+};
+
+function stackedHorizontalBar(params){
+  //basic tool for making horizontal barcharts
+  //parse data into stacked format
+  var data = d3.csv.parse(d3.select(params.data).text());
+  var series = params.valueNames.split(",");
+  
+  dataset = series.map(function(d){
+	var obj = [];	
+	obj["name"] = d;
+	obj["data"] = data.map(function(v){
+	  	var datapoint = [];
+		datapoint[params.labelName] = v[params.labelName];
+		datapoint["value"] = +v[d];
+		return datapoint;
+	});
+	return obj;
+  });
+
+  dataset = dataset.map(function (d) {
+	return d.data.map(function (o, i) {
+	  // Structure it so that your numeric
+	  // axis (the stacked amount) is y
+	  return {
+	    y: o.value,
+	    x: o[params.labelName]
+	  };
+	});
+  });
+  
+  var  stack = d3.layout.stack();
+  stack(dataset);
+  
+  var dataset = dataset.map(function (group) {
+	return group.map(function (d) {
+	  // Invert the x and y values, and y0 becomes x0
+	  return {
+		x: d.y,
+		y: d.x,
+		x0: d.y0
+	  };
+	});
+  });
+  
+  var barLabelWidth = 110, // space reserved for bar labels (left)
+	  barLabelPadding = 5, // padding between bar and bar labels (left)
+	  maxBarWidth = 425, // width of the bars
+	  legendRectWidth = 20, // space reserved for legend rectangles (right)
+    legendTextWidth = 180, // space reserved for legend rectangles (right)
+    barHeight = 20, // height of one bar  
+    gridLabelHeight = 18, // space reserved for gridline labels
+    gridChartOffset = 3; // space between start of grid and first bar
+  
+  // svg container element
+  var width = barLabelWidth + barLabelPadding + maxBarWidth + barLabelPadding + legendRectWidth + barLabelPadding + legendTextWidth;
+  //console.log(width)
+  var height = gridLabelHeight + gridChartOffset + series.length * barHeight
+  var chart = d3.select(params.id)
+    .append("svg")
+    .attr('width', width)
+    .attr('height', height);
+  var xMax = d3.max(dataset, function (group) { return d3.max(group, function (d) { return d.x + d.x0; }); });
+  var xScale = d3.scale.linear().domain([0, xMax]).range([0, maxBarWidth]);
+  var yLabels = dataset[0].map(function (d) { return d.y; });
+
+  var yScale = d3.scale.ordinal().domain(yLabels).rangeBands([0, yLabels.length * barHeight]);
+  var colours = d3.scale.category10();
+  
+  var barsContainer = chart.append('g')
+    .attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+  var groups = barsContainer.selectAll('g').data(dataset).enter().append('g')
+    .style('fill', function (d, i) { return colours(i); });
+  var rects = groups.selectAll('rect')
+    .data(function (d) { return d; })
+    .enter().append('rect')
+    .attr('x', function (d) { return xScale(d.x0); })
+    .attr('y', function (d, i) { return yScale(d.y); })
+    .attr('height', function (d) { return yScale.rangeBand() - 4; })
+    .attr('width', function (d) { return xScale(d.x); })
+    .on('mouseover', function (d) {
+      var xPos = parseFloat(d3.select(this).attr('x')) / 2 + width / 2;
+      var yPos = parseFloat(d3.select(this).attr('y')) + yScale.rangeBand() / 2;
+	  d3.select('#tooltip')
+	    .style('left', (d3.event.pageX) + 'px')
+      .style('top', (d3.event.pageY) + 'px')
+      .html(addLabelUnits(d3.round(d.x, 2), params));
+      d3.select('#tooltip').classed('hidden', false);
+    })
+    .on('mouseout', function () {
+      d3.select('#tooltip').classed('hidden', true);
+    })
+	
+    //add in tooltip functions https://jsfiddle.net/datashaman/rBfy5/4/light/
+
+	series.forEach(function (s, i) {
+		chart.append('text')
+			.attr('fill', 'black')
+			.attr('x', width - legendTextWidth)
+			.attr('y', i*20 + 4)
+			.attr('text-anchor', 'start')
+			.attr('alignment-baseline', 'hanging')
+			.text(s);
+		chart.append('rect')
+			.attr('fill', colours(i))
+			.attr('width', legendRectWidth)
+			.attr('height', barHeight - 4)
+			.attr('x', width - legendRectWidth - barLabelPadding - legendTextWidth)
+			.attr('y', i*20 + 4);
+	});
+
+  //bar labels
+  var labelsContainer = chart.append('g')
+    .attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+  labelsContainer.selectAll('text').data(yLabels).enter().append('text')
+    .attr('y', function(d) { return yScale(d) - 2; })
+    .attr('stroke', 'none')
+    .attr('fill', 'black')
+    .attr("dy", ".35em") // vertical-align: middle
+    .attr('text-anchor', 'end')
+	.attr('alignment-baseline', 'hanging')
+    .text(function(d) { return d; });
+
+};
+</script>
+
+<script id="trash_image_csv_data" type="text/csv">description,weight,year,x,y
+Miscellaneous plastic,1.21,2012,1650,580
+DOW great stuff for air sealing project,2.89,2013,1812,200
+Asics tennis shoes,1.65,2013,597,1647
+Miscellaneous plastic,0.93,2013,1366,1180
+DOW gun cleaner for air sealing project,0.51,2013,1456,312
+Conference junk,0.29,2013,1908,1050
+Thrift store couch cover for Halloween costume,3.80,2014,910,364
+Adidas cleats,1.75,2014,1004,1504
+Padded mailers,0.97,2014,2524,310
+"Scrap metal (staples, food packaging cans, two bent clothes hangars, guitar strings, spokes, metal binding from notebooks)",0.49,2014,1700,1270
+Clamshell packaging (not recyclable in my area),0.43,2014,2910,1475
+Aseptic wipes from fitness classes at gym,0.21,2014,1945,1486
+Inhalers,0.16,2014,1464,1503
+Worn clothes,6.38,2015,520,900
+Bicycle tires,1.83,2015,1660,1745
+Miscellaneous plastic,1.79,2015,2000,680
+Headlamps and bike lights,0.80,2015,2210,1150
+#5 plastic lid sealer from bulk buckets of peanut butter and tahini,0.24,2015,1500,890
+Foam shipping blocks from HP (#4 LDPE not recyclable in my area),0.23,2015,2710,834
+Plastic envelope window film,0.08,2015,2547,1419
+</script>
+
+<script type="text/javascript">//my trash image
+  function trashImage(link_id,data_id){
+    var svg = d3.select(link_id);
+    var width = svg.node().getBBox().width
+    var scalingFactor = width/3262;
+    var params = [];
+    params.units = "lbs";
+    var data = d3.csv.parse(d3.select(data_id).text());
+    var dataCircles = svg.append('g')
+    dataCircles.selectAll('circle').data(data).enter().append('circle')
+      .attr('cx', function(d) {return +d.x*scalingFactor})
+      .attr('cy', function(d) {return +d.y*scalingFactor})
+      .attr('r', 150*scalingFactor)
+      .attr('stroke', 'black')
+      .attr('stroke-width', '2')
+      .attr('stroke-opacity','0.3')
+      .attr('fill', 'gray')
+      .attr('fill-opacity','0.05')
+      .on('mouseover', function (d) {
+        var xPos = parseFloat(d3.select(this).attr('x'));
+        var yPos = parseFloat(d3.select(this).attr('y'));
+        tooltipText = d.description + "<br>" + "Year: " + d.year + "<br>" + addLabelUnits(d3.round(d.weight, 2), params) + " (" + d3.round(+d.weight*0.453592, 2) + " kg)"
+        //console.log(tooltipText);
+        d3.select('#tooltip')
+          .style('left', (d3.event.pageX) + 'px')
+          .style('top', (d3.event.pageY) + 'px')
+          .html(tooltipText);
+          d3.select('#tooltip').classed('hidden', false);
+        })
+      .on('mouseout', function () {
+        d3.select('#tooltip').classed('hidden', true);
+      });
+  };
+  trashImage("#trash-svg","#trash_image_csv_data");
+</script>
+
+<script id="viz2csv_data" type="text/csv">Year,Weight (lbs)
+2012,1.2125
+2013,6.26875
+2014,7.8125
+2015,11.35
+</script>
+
+<script type="text/javascript">//my trash per year
+  function renderViz2(){
+    var params = [];
+    params.id = "#viz2";
+    params.data = "#viz2csv_data";
+    params.labelName = "Year";
+    params.valueName = "Weight (lbs)";
+    params.units = "lbs";
+    params.unitsLocation = "post";
+    params.convert = "kg";
+    params.roundDigits = 2;
+    horizontalBar(params);
+  };
+  renderViz2();
+  addDownloadURI("viz2-data","#viz2csv_data")
+</script>
+
+<script id="me_vs_average_csv_data" type="text/csv">Type,food,plastic,paper and paperboard,metal,yard trimmings,wood,textiles,glass,rubber,other
+Me,0,0,0,0,0,0,0,0,0,26.64375
+Average,884.0637881713,737.7816854298,618.0036570526,371.3118879693,366.2149505916,341.7496511783,300.2096115497,213.306829259,157.4953649726,195.9772421746
+</script>
+
+<script type="text/javascript">//my trash vs. average
+  //data breakdown for my trash for me_vs_average_csv_data if I can get a zoom feature to work to make it useful. defaulting to total for now.
+  //me,0,6.175,0,0.49375,0,0,10.175,0,3.48125,6.31875
+  function renderTrashCompare(){
+    var params = [];
+    params.id = "#me_vs_average";
+    params.data = "#me_vs_average_csv_data";
+    params.labelName = "Type";
+    params.valueNames = "food,plastic,paper and paperboard,metal,yard trimmings,wood,textiles,glass,rubber,other";
+    params.units = "lbs";
+    params.unitsLocation = "post";
+    params.convert = "kg";
+    params.roundDigits = 0;
+    params.sorted = false;
+    stackedHorizontalBar(params);
+  };
+  renderTrashCompare();
+  addDownloadURI("me_vs_average-data","#me_vs_average_csv_data")
+</script>
+
+<script id="viz3csv_data" type="text/csv">Income Level,City per Capita annual Solid Waste Generation (lbs)
+High,1214.75
+Upper-middle,822.324
+Lower-middle,665.796
+Low,482.812
+</script>
+
+<script type="text/javascript">//trash vs. income level
+  function renderViz3(){
+    var params = [];
+    params.id = "#viz3";
+    params.data = "#viz3csv_data";
+    params.labelName = "Income Level";
+    params.valueName = "City per Capita annual Solid Waste Generation (lbs)";
+    params.units = "lbs";
+    params.convert = "kg";
+    params.roundDigits = 0;
+    params.unitsLocation = "post";
+    horizontalBar(params);
+  };
+  renderViz3();
+  addDownloadURI("viz3-data","#viz3csv_data")
+</script>
+
+<script id="viz4csv_data" type="text/csv">Income Level,Paper,Glass,Metals,Plastics,Organics,Other
+High,26,6,5,11,29,23
+Upper-middle,12,5,4,13,56,10
+Lower-middle,8.5,2,1,9,69,10.5
+Low,6.5,1.5,1,6.5,65,19.5
+</script>
+
+<script type="text/javascript">//trash composition by income level
+  function renderViz4(){
+    var params = [];
+    params.id = "#viz4";
+    params.data = "#viz4csv_data";
+    params.labelName = "Income Level";
+    params.valueNames = "Paper,Glass,Metals,Plastics,Organics,Other";
+    params.units = "%";
+    params.unitsLocation = "post";
+    params.sorted = false;
+    stackedHorizontalBar(params);
+  };
+  renderViz4();
+  addDownloadURI("viz4-data","#viz4csv_data")
+</script>
+
+<script id="viz5csv_data" type="text/csv">Income Level,Incineration,Landfill,Simple Controlled Sites,Open/Illegal Dumping
+High,25,75,0,0
+Upper-middle,0,75,20,5
+Lower-middle,6,39,50,5
+Low,0,29,23,48
+</script>
+
+<script type="text/javascript">//trash destination by income level
+  function renderViz5(){
+    var params = [];
+    params.id = "#viz5";
+    params.data = "#viz5csv_data";
+    params.labelName = "Income Level";
+    params.valueNames = "Incineration,Landfill,Simple Controlled Sites,Open/Illegal Dumping";
+    params.units = "%";
+    params.unitsLocation = "post";
+    params.sorted = false;
+    stackedHorizontalBar(params);
+  };
+  renderViz5();
+  addDownloadURI("viz5-data","#viz5csv_data")
+</script>
+
+<script id="viz6csv_data" type="text/csv">Income Level,City per Capita annual Solid Waste Budget ($)
+High,75.00
+Upper-middle,33.00
+Lower-middle,10.00
+Low,1.40
+</script>
+
+<script type="text/javascript">//trash per capita solid waste budget by income level
+  function renderViz6(){
+    var params = [];
+    params.id = "#viz6";
+    params.data = "#viz6csv_data";
+    params.labelName = "Income Level";
+    params.valueName = "City per Capita annual Solid Waste Budget ($)";
+    params.units = "$";
+    params.roundDigits = 2;
+    params.unitsLocation = "pre";
+    horizontalBar(params);
+  };
+  renderViz6();
+  addDownloadURI("viz6-data","#viz6csv_data")
+</script>
+
+<script id="viz8csv_data" type="text/csv">Type,Construction,Renovation,Demolition
+Residential,6.560,31.9,19.7
+Nonresidential,4.270,28.0,45.1
+</script>
+
+<script type="text/javascript">//C&D debris
+  function renderViz8(){
+    var params = [];
+    params.id = "#viz8";
+    params.data = "#viz8csv_data";
+    params.labelName = "Type";
+    params.valueNames = "Construction,Renovation,Demolition";
+    params.units = "million tons";
+    params.roundDigits = 1;
+    params.unitsLocation = "post";
+    params.sorted = false;
+    stackedHorizontalBar(params);
+  };
+  renderViz8();
+  addDownloadURI("viz8-data","#viz8csv_data")
+</script>
+
+<script id="viz9csv_data" type="text/csv">Type,Portland Cement Concrete,Wood,Drywall,Asphalt Roofing,Brick and Tile,Metal,Asphalt Concrete
+Buildings,49,25,8,8,7,3,0
+Road & Bridge,61,0,0,0,0,0,39
+</script>
+
+<script type="text/javascript">//C&D composition
+  function renderViz9(){
+    var params = [];
+    params.id = "#viz9";
+    params.data = "#viz9csv_data";
+    params.labelName = "Type";
+    params.valueNames = "Portland Cement Concrete,Wood,Drywall,Asphalt Roofing,Brick and Tile,Metal,Asphalt Concrete";
+    params.units = "%";
+    params.unitsLocation = "post";
+    params.sorted = false;
+    stackedHorizontalBar(params);
+  };
+  renderViz9();
+  addDownloadURI("viz9-data","#viz9csv_data")
+</script>
+
+<script id="viz10csv_data" type="text/csv">Type,Recovered for Recycling,C&D landfills,MSW landfills
+ ,25,40,35 
+</script>
+
+<script type="text/javascript">//C&D destination
+  function renderViz10(){
+    var params = [];
+    params.id = "#viz10";
+    params.data = "#viz10csv_data";
+    params.labelName = "Type";
+    params.valueNames = "Recovered for Recycling,C&D landfills,MSW landfills";
+    params.units = "%";
+    params.unitsLocation = "post";
+    params.sorted = false;
+    stackedHorizontalBar(params);
+  };
+  renderViz10();
+  addDownloadURI("viz10-data","#viz10csv_data")
+</script>
+
+<script id="viz11csv_data" type="text/csv">Year,Generation,Recycled,Composted,Waste to Energy,Landfill or Incineration
+1960,2.68,0.17,0,0,2.51
+1970,3.25,0.22,0,0.01,3.02
+1980,3.66,0.35,0,0.07,3.24
+1990,4.57,0.64,0.09,0.65,3.19
+2000,4.74,1.03,0.32,0.66,2.73
+2005,4.69,1.1,0.38,0.58,2.63
+2008,4.55,1.12,0.4,0.57,2.46
+2010,4.44,1.15,0.36,0.52,2.41
+2011,4.4,1.17,0.36,0.51,2.36
+2012,4.38,1.14,0.37,0.51,2.36
+</script>
+
+<script id="msw-treemap_data" type="text/csv">Product Category,Material,Method,value
+Durable goods,Steel,Recovered,3.94
+Durable goods,Other non ferrous metals,Recovered,1.36
+Durable goods,Plastics,Recovered,0.77
+Durable goods,Rubber and leather,Recovered,1.35
+Durable goods,Textiles,Recovered,0.55
+Durable goods,Other materials,Recovered,1.30
+Nondurable goods,Paper and paperboard,Recovered,15.44
+Nondurable goods,Plastics,Recovered,0.13
+Nondurable goods,Textiles,Recovered,1.70
+Containers and packaging,Steel,Recovered,1.61
+Containers and packaging,Aluminum,Recovered,0.71
+Containers and packaging,Glass,Recovered,3.20
+Containers and packaging,Paper and paperboard,Recovered,28.92
+Containers and packaging,Plastics,Recovered,1.90
+Containers and packaging,Wood,Recovered,2.41
+Other wastes,Food,Recovered,1.74
+Other wastes,Yard trimmings,Recovered,19.59
+Durable goods,Steel,Discarded,10.63
+Durable goods,Aluminum,Discarded,1.52
+Durable goods,Other non ferrous metals,Discarded,0.64
+Durable goods,Glass,Discarded,2.19
+Durable goods,Plastics,Discarded,10.69
+Durable goods,Rubber and leather,Discarded,5.17
+Durable goods,Wood,Discarded,6.16
+Durable goods,Textiles,Discarded,3.33
+Durable goods,Other materials,Discarded,0.42
+Nondurable goods,Paper and paperboard,Discarded,15.16
+Nondurable goods,Plastics,Discarded,6.38
+Nondurable goods,Rubber and leather,Discarded,1.01
+Nondurable goods,Textiles,Discarded,8.45
+Nondurable goods,Other materials,Discarded,3.07
+Containers and packaging,Steel,Discarded,0.62
+Containers and packaging,Aluminum,Discarded,1.16
+Containers and packaging,Glass,Discarded,6.18
+Containers and packaging,Paper and paperboard,Discarded,9.09
+Containers and packaging,Plastics,Discarded,11.88
+Containers and packaging,Wood,Discarded,7.25
+Containers and packaging,Other materials,Discarded,0.30
+Other wastes,Food,Discarded,34.69
+Other wastes,Yard trimmings,Discarded,14.37
+Other wastes,Miscellaneous inorganic wastes,Discarded,3.90
+</script>
+
+<script type="text/javascript">//trash treemap
+  function renderMSWTreemap(params, data) {
+    //thanks to ganeshv for this great block:
+    //http://bl.ocks.org/ganeshv/6a8e9ada3ab7f2d88022
+    
+    //remove prior treemap if present
+    d3.select("#msw-treemap-svg").remove()
+
+    var defaults = {
+      margin: {top: 24, right: 0, bottom: 0, left: 0},
+      rootname: "TOP",
+      format: ".2f",
+      title: "",
+      width: 750,
+      height: 500,
+      tHeight: 36 + 16
+    };
+    params = Object.assign(defaults,params)
+    var root,
+        rname = params.rootname,
+        margin = params.margin;
+        
+    numberFormat = d3.format(params.format);
+    function formatNumber(d,params) {
+      return numberFormat(d) + params.units;
+    };
+
+    var width = params.width - margin.left - margin.right,
+        height = params.height - margin.top - margin.bottom - params.tHeight,
+        transitioning;
+    
+    var color = d3.scale.category20c();
+    
+    var x = d3.scale.linear()
+        .domain([0, width])
+        .range([0, width]);
+    
+    var y = d3.scale.linear()
+        .domain([0, height])
+        .range([0, height]);
+    
+    var treemap = d3.layout.treemap()
+        .children(function(d, depth) { return depth ? null : d._children; })
+        .sort(function(a, b) { return a.value - b.value; })
+        .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
+        .round(false);
+    
+    var svg = d3.select(params.id).append("svg")
+        .attr("id","msw-treemap-svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.bottom + margin.top)
+        .style("margin-left", -margin.left + "px")
+        .style("margin.right", -margin.right + "px")
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .style("shape-rendering", "crispEdges");
+    
+    var grandparent = svg.append("g")
+        .attr("class", "grandparent");
+    
+    grandparent.append("rect")
+        .attr("class","treemap-rect")
+        .attr("y", -margin.top)
+        .attr("width", width)
+        .attr("height", margin.top);
+    
+    grandparent.append("text")
+        .attr("x", 6)
+        .attr("y", 6 - margin.top)
+        .attr("dy", ".75em");
+
+    if (data instanceof Array) {
+      root = { key: rname, values: data };
+    } else {
+      root = data;
+    };
+      
+    initialize(root);
+    accumulate(root);
+    layout(root);
+    //console.log(root);
+    display(root);
+
+    <!-- if (window.parent !== window) { -->
+      <!-- var myheight = document.documentElement.scrollHeight || document.body.scrollHeight; -->
+      <!-- window.parent.postMessage({height: myheight}, '*'); -->
+    <!-- } -->
+
+    function initialize(root) {
+      root.x = root.y = 0;
+      root.dx = width;
+      root.dy = height;
+      root.depth = 0;
+    };
+
+    // Aggregate the values for internal nodes. This is normally done by the
+    // treemap layout, but not here because of our custom implementation.
+    // We also take a snapshot of the original children (_children) to avoid
+    // the children being overwritten when when layout is computed.
+    function accumulate(d) {
+      return (d._children = d.values)
+          ? d.value = d.values.reduce(function(p, v) { return p + accumulate(v); }, 0)
+          : d.value;
+    };
+
+    // Compute the treemap layout recursively such that each group of siblings
+    // uses the same size (1×1) rather than the dimensions of the parent cell.
+    // This optimizes the layout for the current zoom state. Note that a wrapper
+    // object is created for the parent node for each group of siblings so that
+    // the parent’s dimensions are not discarded as we recurse. Since each group
+    // of sibling was laid out in 1×1, we must rescale to fit using absolute
+    // coordinates. This lets us use a viewport to zoom.
+    function layout(d) {
+      if (d._children) {
+        treemap.nodes({_children: d._children});
+        d._children.forEach(function(c) {
+          c.x = d.x + c.x * d.dx;
+          c.y = d.y + c.y * d.dy;
+          c.dx *= d.dx;
+          c.dy *= d.dy;
+          c.parent = d;
+          layout(c);
+        });
+      }
+    };
+
+    function display(d) {
+      grandparent
+          .datum(d.parent)
+          .on("click", transition)
+        .select("text")
+          .text(name(d));
+
+      var g1 = svg.insert("g", ".grandparent")
+          .datum(d)
+          .attr("class", "depth");
+
+      var g = g1.selectAll("g")
+          .data(d._children)
+        .enter().append("g");
+
+      g.filter(function(d) { return d._children; })
+          .classed("children", true)
+          .on("click", transition);
+
+      var children = g.selectAll(".child")
+          .data(function(d) { return d._children || [d]; })
+        .enter().append("g");
+
+      children.append("rect")
+          .attr("class", "child")
+          .attr("class", "treemap-rect")
+          .call(rect)
+          .on('mouseover', function (d) {
+            var xPos = parseFloat(d3.select(this).attr('x'));
+            var yPos = parseFloat(d3.select(this).attr('y'));
+            tooltipText = d.key + " (" + formatNumber(d.value,params) + ")";
+            d3.select('#tooltip')
+              .style('left', (d3.event.pageX) + 'px')
+              .style('top', (d3.event.pageY) + 'px')
+              .html(tooltipText);
+              d3.select('#tooltip').classed('hidden', false);
+          })
+          .on('mouseout', function () {
+            d3.select('#tooltip').classed('hidden', true);
+          });
+      children.append("text")
+          .attr("class", "ctext")
+          .text(function(d) { return d.key + " (" + numberFormat(d.value) + ")"; })
+          .call(text2);
+
+      g.append("rect")
+          .attr("class", "parent")
+          .call(rect);
+
+      var t = g.append("text")
+          .attr("class", "ptext")
+          .attr("dy", ".75em")
+
+      t.append("tspan")
+          .text(function(d) { return d.key; });
+      t.append("tspan")
+          .attr("dy", "1.0em")
+          .text(function(d) { return formatNumber(d.value,params); });
+      t.call(text);
+
+      g.selectAll("rect")
+          .style("fill", function(d) { return color(d.key); });
+
+      function transition(d) {
+        if (transitioning || !d) return;
+        transitioning = true;
+
+        var g2 = display(d),
+            t1 = g1.transition().duration(500),
+            t2 = g2.transition().duration(500);
+
+        // Update the domain only after entering new elements.
+        x.domain([d.x, d.x + d.dx]);
+        y.domain([d.y, d.y + d.dy]);
+
+        // Enable anti-aliasing during the transition.
+        svg.style("shape-rendering", null);
+
+        // Draw child nodes on top of parent nodes.
+        svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+
+        // Fade-in entering text.
+        g2.selectAll("text").style("fill-opacity", 0);
+
+        // Transition to the new view.
+        t1.selectAll(".ptext").call(text).style("fill-opacity", 0);
+        t1.selectAll(".ctext").call(text2).style("fill-opacity", 0);
+        t2.selectAll(".ptext").call(text).style("fill-opacity", 1);
+        t2.selectAll(".ctext").call(text2).style("fill-opacity", 1);
+        t1.selectAll("rect").call(rect);
+        t2.selectAll("rect").call(rect);
+
+        // Remove the old node when the transition is finished.
+        t1.remove().each("end", function() {
+          svg.style("shape-rendering", "crispEdges");
+          transitioning = false;
+        });
+      }
+
+      return g;
+    };
+
+    function text(text) {
+      text.selectAll("tspan")
+          .attr("x", function(d) { return x(d.x) + 6; })
+      text.attr("x", function(d) { return x(d.x) + 6; })
+          .attr("y", function(d) { return y(d.y) + 6; })
+          //.style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+    };
+
+    function text2(text) {
+      text.attr("x", function(d) { return x(d.x + d.dx) - this.getComputedTextLength() - 6; })
+          .attr("y", function(d) { return y(d.y + d.dy) - 6; })
+          //.style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+    };
+
+    function rect(rect) {
+      rect.attr("x", function(d) { return x(d.x); })
+          .attr("y", function(d) { return y(d.y); })
+          .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+          .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+    };
+
+    function name(d) {
+      return d.parent
+          ? name(d.parent) + " / " + d.key + " (" + formatNumber(d.value,params) + ")"
+          : d.key + " (" + formatNumber(d.value,params) + ")";
+    };
+  };
+
+  var params = [];
+  params.id = "#msw-treemap";
+  params.data = "#msw-treemap_data";
+  params.units = " million tons";
+  params.roundDigits = 2;
+  params.unitsLocation = "post";
+
+  var msw_data = d3.csv.parse(d3.select(params.data).text(), function(d) {
+    return {
+     product: d["Product Category"],
+     material: d["Material"],
+     method: d["Method"],
+     value: +d.value
+    }
+  });
+  //console.log("msw_data:")
+  //console.log(msw_data)
+  function dataKey(data, keyOrder){
+    for (var i = 0, len = data.length; i < len; i++) {
+      data[i]["key"] = data[i][keyOrder[2]];
+    }
+    var nestedData = d3.nest().key(function(d) { return d[keyOrder[0]]; }).key(function(d) { return d[keyOrder[1]]; }).entries(data);
+    return nestedData;
+  };
+
+  //initial render
+  keyOrder = ["method","product","material"]
+  data = dataKey(msw_data, keyOrder)
+  //console.log("nested data:");
+  //console.log(data);
+  renderMSWTreemap(params, {key: "(click here to zoom out) Total", values: data});
+
+  //remove from array
+  function removeArrayItem(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
+  };
+
+  function getKeyOrder() {
+    first = document.querySelector('input[name="msw_select1"]:checked').value;
+    second = document.querySelector('input[name="msw_select2"]:checked').value;
+    third = removeArrayItem(removeArrayItem(["method","product","material"],first),second);
+    //console.log(first + " " + second + " " + third);
+    return [first,second,third];
+  };
+
+  d3.select("#msw_select1_form").selectAll("input")
+  .on("change", function (){
+    switch(this.value) {
+      case "method":
+        document.getElementById("method2").disabled = true;
+        document.getElementById("product2").disabled = false;
+        document.getElementById("material2").disabled = false;
+        if (document.getElementById("method2").checked == true) {
+          document.getElementById("method2").checked = false;
+          document.getElementById("product2").checked = true;
+        }
+        break;
+      case "product":
+        document.getElementById("method2").disabled = false;
+        document.getElementById("product2").disabled = true;
+        document.getElementById("material2").disabled = false;
+        if (document.getElementById("product2").checked == true) {
+          document.getElementById("product2").checked = false;
+          document.getElementById("method2").checked = true;
+        }
+        break;
+      case "material":
+        document.getElementById("method2").disabled = false;
+        document.getElementById("product2").disabled = false;
+        document.getElementById("material2").disabled = true;
+        if (document.getElementById("material2").checked == true) {
+          document.getElementById("material2").checked = false;
+          document.getElementById("method2").checked = true;
+        }
+        break;
+    };
+    data = dataKey(msw_data, getKeyOrder())
+    renderMSWTreemap(params, {key: "(click here to zoom out) Total", values: data});
+  });
+
+  d3.select("#msw_select2_form").selectAll("input")
+      .on("change", function (){
+        data = dataKey(msw_data, getKeyOrder())
+        renderMSWTreemap(params, {key: "(click here to zoom out) Total", values: data});
+      });
+  addDownloadURI("msw-treemap-data","#msw-treemap_data")
+</script>
+
+<script id="recycling_comparison_csv_data" type="text/csv">item,ghg,energy
+miles of driving is offset by recycling or composting instead of landfilling...,1.0,1.0
+aluminum beer cans,3.817860641,2.92120584
+ft2 sheet aluminum foil,12.19464087,9.330632905
+no.1 steel cans (~12 ounces food can),4.164133707,4.837609367
+inches 1/2 inch O.D. Type L copper pipe,0.73718261,0.539526029
+magazines (72 pages),0.90515823,42.54353918
+letters (#10 envelope + 2 sheets office paper),7.422993013,40.63715882
+cardboard boxes (12x12x12 inches),0.296731122,0.861328032
+days of vegetable scraps (4.25 cups per person-day),2.164574897,-32.87482138
+days of food waste (4.25 cups per person-day),2.164574897,-32.87482138
+glass beer bottles,7.909592168,12.57957146
+wine bottles,3.053102577,4.855714584
+17 oz plastic drink bottles (PET #1),31.86056867,14.46576285
+gallon plastic jugs (HDPE #2),8.089615204,1.827714857
+</script>
+
+<script type="text/javascript">//recycling comparison
+  function recyclingComparison(link_id,data_id){
+    var vizWidth = 700; // width  
+    var vizHeight = 600; // height
+ 
+    var chart = d3.select(link_id)
+    var data = d3.csv.parse(d3.select(data_id).text());    
+    var dataRows = chart.append('g').selectAll('div').data(data).enter().append('div')
+    
+    //function to update the comparison on input
+    function updateComparison(inputCells, scalingFactor) {
+      inputCells.attr('value', function(d) { return d3.round(+d.ghg*scalingFactor,1)});
+      //not sure why this call is needed, but the default value and values get overridden
+      inputCells[0].forEach(function(cell) { cell.value = cell.defaultValue;});
+    };
+    
+    var inputCells = dataRows.append('input')
+      .on("input", function(d,i) {
+        //console.log("new value is " + +this.value + " original value is " + +d.ghg + " implying a scaling of " + +this.value/d.ghg);
+        scalingFactor = +this.value/d.ghg;
+        //this.value = d.ghg;
+        updateComparison(inputCells,scalingFactor)
+      });
+    
+    // make labels
+    dataRows.append('label')
+      .text(function(d) {return " " + d.item});
+    
+    //initial call
+    updateComparison(inputCells,1);
+  };
+  recyclingComparison("#recycling-comparison","#recycling_comparison_csv_data");
+  addDownloadURI("recycling-comparison-data","#recycling_comparison_csv_data")
+</script>
+
+</html>
