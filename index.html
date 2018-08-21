@@ -190,7 +190,7 @@
     <li><a href="#part6">PART 6 - A Closer Look at Municipal Solid Waste Recycling</a></li>
     <li><a href="#part7">PART 7 - Major Initiatives and Strategies to Reduce Landfill Waste</a></li>
     <li><a href="#part8">PART 8 - Relative Importance and Individual Action</a></li>
-    <li><a href="#part9">PART 9 - Closing Thoughs/Conclusion</a></li>
+    <li><a href="#part9">PART 9 - Closing Thoughts/Conclusion</a></li>
     <li><a href="#tldr">SUMMARY - TL;DR (Too Long; Didn't Read)</a></li>
     <li><a href="#appendix">APPENDIX - Further Reading</a></li>
   </ol>
@@ -437,7 +437,7 @@
       </form>
     </div>
   </div>
-  <p><em>Note: Graphic doesn't display in Internet Explorer.</em><p>
+  
   <p>More than a quarter of MSW is food and yard trimmings - biodegradable material that could be composted instead of landfilled. Only 5% of food waste and 60% of yard trimmings are recovered for composting. As a result, about one-third of landfilled MSW is food or yard trimming waste.</p>
   <p>When organic wastes are discarded in a landfill, the lack of oxygen causes them to break down into methane, a stronger greenhouse gas than carbon dioxide. This methane is released from the landfill - often through direct venting - and greatly offsets any carbon sequestration benefit from burying the carbon-based materials. Composting organic wastes so they break down in an aerobic environment, with oxygen, releases carbon dioxide instead of methane, and the compost can then be used as fertilizer, displacing other carbon-intensive fertilizers. This has the effect of making net-negative carbon emissions, as opposed to landfilling, which can be comparable only if it captures most of the methane and uses it to generate power, displacing more carbon-intensive sources of power generation.</p>
   <p>Methane emissions from landfills alone are equivalent to <a href="http://www.eesi.org/papers/view/fact-sheet-landfill-methane" target="_blank">103 million metric tons</a> of carbon dioxide; meaning, roughly speaking, the <em>methane emissions</em> from landfills are about half as important as the total waste tonnage going to landfills (or a third of the environmental cost).  Capturing methane at the <a href="https://www.saveonenergy.com/land-of-waste/" target="_blank">~2000 landfills</a> in the U.S. is then roughly as significant an action as <em>doubling</em> the recycling rate.</p>
@@ -556,7 +556,7 @@
 
 <hr />
 
-<h2 id="part9">PART 9 - Closing Thoughs/Conclusion</h2>
+<h2 id="part9">PART 9 - Closing Thoughts/Conclusion</h2>
 <p>After four years, the trash experiment became limiting.  There were many things I liked doing but avoided because they created trash. Buying new shoes. Going hiking with friends and being extremely limited on food selection. Making things.</p>
 <p>This was perhaps the biggest limitation. I really enjoy and admire electronics projects, woodworking, metalworking, bike maintenance, and gardening. But practicing these skills require material, tools, and the packaging that comes with them. During the four-year experiment, I switched over to doing more software projects and reading to compensate.</p>
 <p>Also, the experiment was socially exhausting. Friends and family were mildly annoyed and mostly ambivalent. The waste experiment consumed most of my personal quota of "weirdness points" that each person gets before people start avoiding them.</p>
@@ -834,13 +834,13 @@ function horizontalBar(params){
   //var sortedData = data.sort(function(a, b) {
   // return d3.descending(barValue(a), barValue(b));
   //});
-
+  
   // scales
   var yScale = d3.scale.ordinal().domain(d3.range(0, data.length)).rangeBands([0, data.length * barHeight]);
   var y = function(d, i) { return yScale(i); };
   var yText = function(d, i) { return y(d, i) + yScale.rangeBand() / 2; };
   var x = d3.scale.linear().domain([0, d3.max(data, barValue)]).range([0, maxBarWidth]);
-
+  
   // svg container element
   var chartWidth = barLabelWidth + barLabelPadding + maxBarWidth + barValueWidth;
   var chartHeight = gridLabelHeight + gridChartOffset + data.length * barHeight
@@ -848,7 +848,7 @@ function horizontalBar(params){
     .append("svg")
     .attr('width', chartWidth)
     .attr('height', chartHeight);
-
+  
   // bar labels
   var labelsContainer = chart.append('g')
     .attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
@@ -868,7 +868,7 @@ function horizontalBar(params){
     .attr('height', yScale.rangeBand() - 4)
     .attr('width', function(d) { return x(barValue(d)); })
     .attr('fill', 'steelblue');
-    
+  
   // bar value labels
   barsContainer.selectAll("text").data(data).enter().append("text")
     .attr("x", function(d) { return x(barValue(d)); })
@@ -898,7 +898,7 @@ function stackedHorizontalBar(params){
 	});
 	return obj;
   });
-
+  
   dataset = dataset.map(function (d) {
 	return d.data.map(function (o, i) {
 	  // Structure it so that your numeric
@@ -939,12 +939,13 @@ function stackedHorizontalBar(params){
   var height = gridLabelHeight + gridChartOffset + series.length * barHeight
   var chart = d3.select(params.id)
     .append("svg")
+    .attr('class','bar-chart')
     .attr('width', width)
     .attr('height', height);
   var xMax = d3.max(dataset, function (group) { return d3.max(group, function (d) { return d.x + d.x0; }); });
   var xScale = d3.scale.linear().domain([0, xMax]).range([0, maxBarWidth]);
   var yLabels = dataset[0].map(function (d) { return d.y; });
-
+  
   var yScale = d3.scale.ordinal().domain(yLabels).rangeBands([0, yLabels.length * barHeight]);
   var colours = d3.scale.category10();
   
@@ -970,38 +971,36 @@ function stackedHorizontalBar(params){
     })
     .on('mouseout', function () {
       d3.select('#tooltip').classed('hidden', true);
-    })
+    });
 	
-    //add in tooltip functions https://jsfiddle.net/datashaman/rBfy5/4/light/
-
+  //add in tooltip functions https://jsfiddle.net/datashaman/rBfy5/4/light/
+  
 	series.forEach(function (s, i) {
 		chart.append('text')
 			.attr('fill', 'black')
 			.attr('x', width - legendTextWidth)
-			.attr('y', i*20 + 4)
+			.attr('y', (i+1)*barHeight + 18) // custom fit
 			.attr('text-anchor', 'start')
-			.attr('alignment-baseline', 'hanging')
 			.text(s);
 		chart.append('rect')
 			.attr('fill', colours(i))
 			.attr('width', legendRectWidth)
 			.attr('height', barHeight - 4)
 			.attr('x', width - legendRectWidth - barLabelPadding - legendTextWidth)
-			.attr('y', i*20 + 4);
+			.attr('y', (i+1)*barHeight + 4);
 	});
 
   //bar labels
   var labelsContainer = chart.append('g')
     .attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
   labelsContainer.selectAll('text').data(yLabels).enter().append('text')
-    .attr('y', function(d) { return yScale(d) - 2; })
+    .attr('y', function(d, i) { return i*barHeight + 8; }) // custom fit
+    //.attr('y', function(d, i) { return yScale(d) - 2; })
     .attr('stroke', 'none')
     .attr('fill', 'black')
     .attr("dy", ".35em") // vertical-align: middle
     .attr('text-anchor', 'end')
-	.attr('alignment-baseline', 'hanging')
     .text(function(d) { return d; });
-
 };
 </script>
 
@@ -1334,7 +1333,7 @@ Other wastes,Miscellaneous inorganic wastes,Discarded,3.90
     
     //remove prior treemap if present
     d3.select("#msw-treemap-svg").remove()
-
+    
     var defaults = {
       margin: {top: 24, right: 0, bottom: 0, left: 0},
       rootname: "TOP",
@@ -1344,7 +1343,18 @@ Other wastes,Miscellaneous inorganic wastes,Discarded,3.90
       height: 500,
       tHeight: 36 + 16
     };
-    params = Object.assign(defaults,params)
+    
+    //Object.assign not a valid call in IE
+    //params = Object.assign(defaults,params)
+    
+    var objs = [defaults, params],
+        params =  objs.reduce(function (r, o) {
+            Object.keys(o).forEach(function (k) {
+                r[k] = o[k];
+            });
+            return r;
+        }, {});
+    
     var root,
         rname = params.rootname,
         margin = params.margin;
